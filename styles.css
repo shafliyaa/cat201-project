@@ -1,0 +1,40 @@
+body{
+    color: black;
+    height: 100%;
+}
+
+#header-part{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#nav-bar{
+    background-color: white;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-part{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 30px;
+}
+
+.login-image{
+    height: 50%;
+    width: 40%;
+}
+
+#home-button{
+    background-color: white;
+    border: 0;
+}
