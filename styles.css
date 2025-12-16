@@ -88,8 +88,11 @@ body{
     gap: 20px;
 }
 
-#email-phone-login,
-#password-login,
+#login-email,
+#login-password,
+#sign-up-name,
+#sign-up-email,
+#sign-up-password,
 #forget-email-phone,
 #verification-code{
     border: none;
@@ -98,20 +101,31 @@ body{
 }
 
 
-#email-phone-login:focus,
-#password-login:focus,
+#login-email:focus,
+#login-password:focus,
+#sign-up-email:focus,
+#sign-up-password:focus,
 #forget-email-phone:focus,
 #verification-code:focus{
   border-bottom-color:  #616060;
 }
 
 #login-button{
+    padding: 5px;
+}
+
+.login-hover{
     border: none;
     background-color: white;
 }
 
-#login-button:hover{
+.login-hover:hover{
     opacity: 0.8;
+}
+
+#login-info-bottom{
+    display: flex;
+    gap: 100px;
 }
 
 #forget-password-login{
@@ -121,11 +135,6 @@ body{
 
 #forget-password-login:hover{
     opacity: 0.8;
-}
-
-#login-info-bottom{
-    display: flex;
-    gap: 100px;
 }
 
 #sign-up-page{
@@ -170,14 +179,6 @@ body{
 }
 
 
-#name,
-#email-phone,
-#password{
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-}
-
 #main-page{
     display: flex;
     flex-direction: column;
@@ -185,7 +186,7 @@ body{
     padding-bottom: 160px;
     margin-left: 100px;
     margin-right: 100px;
-    
+ 
 }
 
 #main-page-1{
@@ -260,6 +261,17 @@ body{
 #ikatan-style{
     height: 280px;
     width: 200px;
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.star{
+    height: 20px;
+    width: 100px;
 }
 
 #main-bottom{

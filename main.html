@@ -29,8 +29,8 @@
                         <h1>Log in to HijabLuxe</h1>
                         <p>Enter your details below</p>
                     
-                            <input id="email-phone-login" placeholder="Email or Phone Number"></input>
-                            <input id="password-login" placeholder="Password"></input>
+                            <input type="email" id="login-email" placeholder="Email"></input>
+                            <input type="password" id="login-password" placeholder="Password"></input>
                         
                         <div id="login-info-bottom">
                             <button id="login-button">Log In</button>
@@ -43,9 +43,9 @@
                 <div id="sign-up-info">
                     <h1>Create an Account</h1>
                     <p>Enter your details below</p>
-                    <input id="name" placeholder="Name"></input>
-                    <input id="email-phone"placeholder="Email or Phone Number"></input>
-                    <input id="password" placeholder="Password"></input>
+                    <input type="text" id="sign-up-name" placeholder="Name"></input>
+                    <input type="email" id="sign-up-email"placeholder="Email"></input>
+                    <input type="password" id="sign-up-password" placeholder="Password"></input>
                     <div id="create-button">
                         <button id="create-account-button">Create Account</button>
                         <p>or</p>
@@ -53,7 +53,7 @@
                     </div>                    
                     <div id="sign-up-bottom">
                         <p>Already have account?</p>
-                        <button id="login-button">Log In</button>                    
+                        <button class="login-hover">Log In</button>                    
                     </div>
                 </div>
             </div>
@@ -91,25 +91,25 @@
                 <div id="new-arrival">
                     <h3 id="new-arrival-title">New Arrival</h3>
                     <div id="new-arrival-content">
-                        <div id="new-1">
+                        <div class="products" data-id="1">
                             <img src="Pink Kembang BACK.webp" id="pink-kembang">
                             <p>Bawal Pink Kembang</p>
                             <p>$45</p>
-                            <img src="Five star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
-                        <div id="new-2">
+                        <div class="products" data-id="2">
                             <img src="Grey Gintih FS.webp" id="grey-gintih">
                             <p>Selendang Grey Premium</p>
                             <p>$80</p>
-                            <img src="Five star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
-                        <div id="new-3">
+                        <div class="products" data-id="3">
                             <img src="Black Jelaga FS.webp" id="grey-gintih">
                             <p>Selendang Black Mekkah</p>
                             <p>$80</p>
-                            <img src="Four Half Star.png">
+                            <img class="star" src="Four Half Star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                     </div>   
@@ -117,25 +117,25 @@
                 <div id="popular-now">
                     <h3 id="popular-now-title">Popular Now</h3>
                     <div id="popular-content">
-                        <div id="popular-1">
+                        <div class="products" data-id="4">
                             <img src="brown husk.webp" id="brown-husk">
                             <p>Bawal Brown Husk</p>
                             <p>$30</p>
-                            <img src="Five star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
-                        <div id="popular-2">
+                        <div class="products" data-id="5">
                             <img src="WHITE PANCAR BACK.webp" id="white-pancar">
                             <p>Bawal White Sulam</p>
                             <p>$109</p>
-                            <img src="Five star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
-                        <div id="popular-3">
+                        <div class="products" data-id="6">
                             <img src="TudungPeople-Ikatan-Lite-03.webp" id="ikatan-style">
                             <p>Selendang Ikatan Lite</p>
                             <p>$299</p>
-                            <img src="Four Half Star.png">
+                            <img class="star" src="Four Half Star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                     </div>   
