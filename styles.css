@@ -60,15 +60,25 @@ body{
 #home-button,
 #contact-button,
 #about-button,
-#signup-button{
+#signup-button,
+#profile-button{
     background-color: white;
     border: 0;
+}
+
+#signup-button{
+    display: block;
+}
+
+#profile-button{
+    display: none;
 }
 
 #home-button:hover,
 #contact-button:hover,
 #about-button:hover,
-#signup-button:hover{
+#signup-button:hover,
+#profile-button:hover{
     opacity: 0.8;
 }
 
@@ -114,12 +124,12 @@ body{
     padding: 5px;
 }
 
-.login-hover{
+#login-hover{
     border: none;
     background-color: white;
 }
 
-.login-hover:hover{
+#login-hover:hover{
     opacity: 0.8;
 }
 
