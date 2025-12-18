@@ -66,6 +66,7 @@ html {
 #contact-button,
 #about-button,
 #signup-button,
+#login-button,
 #profile-button,
 #cart-button{
     cursor: pointer;
@@ -94,6 +95,7 @@ html {
 #contact-button:hover,
 #about-button:hover,
 #signup-button:hover,
+#login-button:hover,
 #profile-button:hover,
 #cart-button:hover{
     opacity: 0.8;
@@ -133,10 +135,6 @@ html {
 #forget-email-phone:focus,
 #verification-code:focus{
   border-bottom-color:  #616060;
-}
-
-#login-button{
-    padding: 5px;
 }
 
 #login-hover{
@@ -319,40 +317,6 @@ html {
 }
 
 
-#forget-password-main-page{
-    padding-bottom: 160px;
-    margin-left: 0;
-}
-
-#forget-main-info{
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
-    padding-top: 130px;
-    margin-left: 25px;
-    gap: 20px;
-}
-
-#request-code,
-#verify-code{
-    width: 200px;
-    height: 30px;
-}
-
-#forget-password-code-page{
-    padding-bottom: 160px;
-    margin-left: 0;
-}
-
-#forget-code-info{
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
-    padding-top: 130px;
-    margin-left: 25px;
-    gap: 20px;
-}
-
 #cart-page{
     flex-direction: column;
 }
@@ -427,4 +391,11 @@ th,td{
 .middle-title{
     display: flex;
     justify-content: center;
+}
+
+#login-form,
+#sign-up-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

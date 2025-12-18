@@ -19,6 +19,7 @@
                     <a href="#footer-part" id="contact-button">Contact</a>
                     <button id="about-button">About</button>
                     <button id="signup-button">Sign Up</button>
+                    <button id="login-button">Log In</button>
                     <button id="profile-button">Profile</button>
                     <button id="cart-button">Cart</button>
                 </div>
@@ -29,14 +30,12 @@
                     <div id="login-info"> 
                         <h1>Log in to HijabLuxe</h1>
                         <p>Enter your details below</p>
-                    
-                            <input type="email" id="login-email" placeholder="Email"></input>
-                            <input type="password" id="login-password" placeholder="Password"></input>
-                        
-                        <div id="login-info-bottom">
-                            <button id="login-button">Log In</button>
-                            <button id="forget-password-login">Forget Password?</button>
-                        </div>
+                            <form id="login-form"  method="post">
+                                <input type="email" id="login-email" placeholder="Email" required>
+                                <input type="password" id="login-password" placeholder="Password" required>
+                                <input type="submit" value="Log In"> 
+                                <button id="forget-password-login">Forget Password?</button>
+                            </form>                        
                     </div>
             </div>
             <div id="sign-up-page" class="page">
@@ -44,38 +43,23 @@
                 <div id="sign-up-info">
                     <h1>Create an Account</h1>
                     <p>Enter your details below</p>
-                    <input type="text" id="sign-up-name" placeholder="Name"></input>
-                    <input type="email" id="sign-up-email"placeholder="Email"></input>
-                    <input type="password" id="sign-up-password" placeholder="Password"></input>
-                    <div id="create-button">
-                        <button id="create-account-button">Create Account</button>
-                        <p>or</p>
-                        <button id="google-button"><img src="Icon-Google.png">Sign up with Google</button>
-                    </div>                    
+                    <form id="sign-up-form">
+                        <input type="text" id="sign-up-name" placeholder="Name" required>
+                        <input type="email" id="sign-up-email" placeholder="Email" required>
+                        <input type="password" id="sign-up-password" placeholder="Password" required>
+                        <div id="create-button">
+                            <input type="submit" id="create-account-button" value="Create Account">
+                            <p>or</p>
+                            <button id="google-button"><img src="Icon-Google.png">Sign up with Google</button>
+                        </div> 
+                    </form>                   
                     <div id="sign-up-bottom">
                         <p>Already have account?</p>
                         <button id="login-hover">Log In</button>                    
                     </div>
                 </div>
             </div>
-            <div id="forget-password-main-page" class="page">
-                <img src="login-image.png" class="login-image">
-                <div id="forget-main-info">
-                    <h1>Forget Password</h1>
-                    <p>Enter your details below</p>
-                    <input id="forget-email-phone" placeholder="Email or Phone Number"></input>
-                    <button id="request-code">Request Verification Code</button>
-                </div>
-            </div>
-            <div id="forget-password-code-page" class="page">
-                <img src="login-image.png" class="login-image">
-                <div id="forget-code-info">
-                    <h1>Forget Password</h1>
-                    <p>Enter your details below</p>
-                    <input id="verification-code" placeholder="Enter Verification Code"></input>
-                    <button id="verify-code">Verify Code</button>
-                </div>
-            </div>
+
             <div id="main-page" class="page">
                 <div id="main-page-header" >
                     <div id="main-page-button">

@@ -1,6 +1,8 @@
 const signUpBtn = document.getElementById("signup-button");
+const loginBtn = document.getElementById("login-button");
 const profileBtn = document.getElementById("profile-button");
 const cartBtn = document.getElementById("cart-button");
+
 const isLoggedIn = false;
 
 if(isLoggedIn){
@@ -13,38 +15,45 @@ const mainPage = document.getElementById("main-page");
 const loginPage = document.getElementById("login-page");
 const signUpPage = document.getElementById("sign-up-page");
 
-signUpBtn.addEventListener("click",()=>{
-    mainPage.style.display = 'none';
-    signUpPage.style.display = 'flex';
-})
-
 const loginHover = document.getElementById("login-hover");
+
 
 loginHover.addEventListener("click", () => {
     signUpPage.style.display = 'none';
+    loginPage.scrollIntoView({ behavior: "smooth" });
     loginPage.style.display = 'flex';
 })
 
-const forgetPasswordMain = document.getElementById("forget-password-main-page");
-const forgetPasswordCode = document.getElementById("forget-password-code-page");
+const loginForm = document.getElementById("login-form");
+
+loginForm.addEventListener("submit", function(event){
+    const password = document.getElementById("login-password").value;
+
+    if(password.length < 8){
+        alert("Password must be at least 8 characters");
+        event.preventDefault(); // stop submission
+    } 
+});
+
+const signUpForm = document.getElementById("sign-up-form");
+
+signUpForm.addEventListener("submit", function(event){
+    const password = document.getElementById("sign-up-password").value;
+
+    if(password.length < 8){
+        alert("Password must be at least 8 characters");
+        event.preventDefault(); // stop submission
+    } 
+});
+
 const forgetPasswordBtn = document.getElementById("forget-password-login");
-const requestCodeBtn = document.getElementById("request-code");
-const verifyCodeBtn = document.getElementById("verify-code");
 
-forgetPasswordBtn.addEventListener("click", () =>{
-    loginPage.style.display = 'none';
-    forgetPasswordMain.style.display = 'flex'; 
+
+forgetPasswordBtn.addEventListener("click", (event) =>{
+    event.preventDefault();
+    alert("Forget password page not implemented for this assignment.");
 })
 
-requestCodeBtn.addEventListener("click",() =>{
-    forgetPasswordMain.style.display = 'none';
-    forgetPasswordCode.style.display = 'flex';   
-})
-
-verifyCodeBtn.addEventListener("click", ()=>{
-    forgetPasswordCode.style.display = 'none';
-    mainPage.style.display = 'flex';      
-})
 
 const homeBtn = document.getElementById("home-button");
 const contactBtn = document.getElementById("contact-button");
@@ -60,6 +69,14 @@ homeBtn.addEventListener("click", ()=>{
 
 cartBtn.addEventListener("click", ()=>{
     showCartPage();
+})
+
+signUpBtn.addEventListener("click",()=>{
+  showSignUpPage();
+})
+
+loginBtn.addEventListener("click",()=>{
+  showLogInPage();
 })
 
 function showHomePage(){
@@ -78,6 +95,25 @@ function showCartPage(){
     })
 
     cartPage.style.display = "flex";
+}
+
+function showSignUpPage(){
+    const pages = document.querySelectorAll(".page");
+    pages.forEach(page=>{
+        page.style.display = "none";
+    })
+
+    signUpPage.style.display = "flex";
+}
+
+
+function showLogInPage(){
+    const pages = document.querySelectorAll(".page");
+    pages.forEach(page=>{
+        page.style.display = "none";
+    })
+
+    loginPage.style.display = "flex";
 }
 
 // Load cart from localStorage or empty array
@@ -211,4 +247,6 @@ innerCapBtn.addEventListener("click", ()=>{
   mainPage.style.display = "none";
   innercapPage.style.display = "flex";
 })
+
+
 
