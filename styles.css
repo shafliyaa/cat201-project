@@ -399,3 +399,441 @@ th,td{
     flex-direction: column;
     gap: 20px;
 }
+
+
+#shipping-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-info{
+    height: 200px;
+    width: 100px;
+}
+
+#checkout-page {
+    /* Set to flex to align form and summary side-by-side */
+    display: none; /* Controlled by your .page class logic */
+    flex-direction: row; 
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ensure form elements match your login/signup style */
+#checkout-page form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1.5;
+}
+
+#checkout-page input, 
+#checkout-page select {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    padding: 10px 0;
+    width: 100%;
+}
+
+#checkout-page input:focus, 
+#checkout-page select:focus {
+    border-bottom-color: #616060;
+}
+
+/* Shipping and Payment Headings */
+#shipping-details h2, 
+#payment-details h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Update the Fieldset inside the checkout page */
+#checkout-page fieldset {
+    border: 1px solid #eee;
+    padding: 25px; /* Increased padding for a cleaner look */
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the rows of inputs */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Specific fix for Email and Phone alignment */
+#contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+#checkout-page legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Order Summary Box */
+.summary-section {
+    flex: 1;
+    border: 2px solid black;
+    padding: 30px;
+    min-width: 300px;
+}
+
+#order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#order-summary th, 
+#order-summary td {
+    padding: 15px 5px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+/* Complete Purchase Button (Matching your Google/Create button style) */
+#place-order-btn {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#place-order-btn:hover {
+    opacity: 0.8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    #checkout-page {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+    }
+    
+    #checkout-page form, 
+    .summary-section {
+        width: 100%;
+    }
+}
+
+#order-history-page {
+    display: flex; /* Change to none if you are using your page-switching script */
+    justify-content: center;
+    padding: 50px 5%;
+    background-color: #f9f9f9;
+    min-height: 80vh;
+}
+
+.history-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.history-title {
+    font-size: 24px;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.order-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    overflow: hidden; /* Keeps table within rounded corners */
+}
+
+/* Header strip of the order card */
+.order-header {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.order-header .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #666;
+    margin: 0;
+}
+
+.order-header .value {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+}
+
+.status-delivered {
+    color: green;
+}
+
+/* Table inside the card */
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th {
+    text-align: left;
+    font-size: 12px;
+    color: #888;
+    padding: 15px 20px 5px 20px;
+}
+
+.history-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* Remove border from last row */
+.history-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Back button matching your theme */
+#return-home-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: opacity 0.3s;
+}
+
+#return-home-btn:hover {
+    opacity: 0.8;
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+    .order-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+
+/* Profile Page Layout Container */
+.profile-layout {
+    display: flex; /* Sidebar on left, form on right */
+    max-width: 1170px;
+    margin: 80px auto;
+    padding: 0 15px;
+    gap: 80px; /* Space between sidebar and form */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar Navigation Styling */
+.profile-sidebar {
+    width: 250px;
+}
+
+.sidebar-group h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.sidebar-group ul {
+    list-style: none;
+    padding-left: 35px;
+    margin-bottom: 25px;
+}
+
+.sidebar-group ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar-group ul li a {
+    text-decoration: none;
+    color: #7D7D7D; /* Muted gray for non-active links */
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.sidebar-group ul li a:hover, 
+.active-link {
+    color: #DB4444 !important; /* Signature Red for active page */
+}
+
+/* Profile Form Card Styling */
+.profile-content {
+    flex: 1; /* Form takes up remaining space */
+}
+
+.profile-form-card {
+    padding: 40px 80px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.form-title {
+    color: #DB4444;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+/* Form Row for side-by-side inputs */
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.profile-page label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #000;
+}
+
+.profile-page input {
+    width: 100%;
+    padding: 13px 16px;
+    background: #F5F5F5; /* Light gray background from Figma */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.password-changes {
+    margin-top: 10px;
+}
+
+.password-changes label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.password-changes input {
+    margin-bottom: 15px;
+}
+
+/* Action Buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+    margin-top: 25px;
+}
+
+.btn-cancel {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000;
+}
+
+.btn-save {
+    background: #DB4444;
+    color: #FFFFFF;
+    border: none;
+    padding: 16px 48px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-save:hover {
+    background: #c13a3a;
+}
+
+/* Responsive adjustments for Tablets/Mobile */
+@media (max-width: 992px) {
+    .profile-layout {
+        flex-direction: column;
+        margin: 40px auto;
+        gap: 40px;
+    }
+    
+    .profile-form-card {
+        padding: 30px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Update the general selector to target the ID specifically */
+#profile-page label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #000;
+}
+
+/* Ensure inputs take up 100% of their parent column */
+#profile-page input {
+    width: 100%;
+    padding: 13px 16px;
+    background: #F5F5F5;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Crucial: includes padding in the width */
+}
+
+/* Fix the Password Section to stack inputs vertically */
+.password-changes {
+    margin-top: 24px;
+}
+
+.password-changes label {
+    margin-bottom: 12px;
+}
+
+.password-changes input {
+    display: block;
+    margin-bottom: 16px; /* Space between the three password fields */
+}
+
+/* Ensure the side-by-side rows align perfectly */
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    align-items: flex-start;
+}
+
+/* Ensure columns are equal width */
+.input-group {
+    flex: 1;
+}

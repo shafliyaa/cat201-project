@@ -1,0 +1,199 @@
+/* 1. Global Styles */
+html { scroll-behavior: smooth; }
+body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333; background-color: #f4f4f4;
+    display: flex; flex-direction: column;
+    height: 100vh; overflow: hidden;
+}
+
+/* 2. Top Header */
+#header-part {
+    background-color: hsl(104, 43%, 14%);
+    color: white; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 40px;
+    height: 55px; flex-shrink: 0;
+}
+
+/* 3. Admin Layout Wrapper */
+#admin-container {
+    display: flex; flex-direction: column; 
+    flex: 1; overflow: hidden;
+}
+
+/* 4. Top Navigation Bar - REFINED */
+#sidebar {
+    width: 100%; 
+    background-color: #1a1a1a;
+    color: white; 
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between; /* Brand Left, Menu Right */
+    padding: 0 40px;
+    height: 50px;
+    border-bottom: 2px solid hsl(104, 43%, 14%); 
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+#sidebar #ShopName { 
+    font-size: 18px; 
+    margin: 0; 
+    flex-shrink: 0; 
+}
+
+.menu-list { 
+    display: flex !important; 
+    gap: 15px; /* Spacing between menu icons */
+    align-items: center; 
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    padding: 6px 12px; 
+    color: #bbb; 
+    text-decoration: none;
+    font-size: 13px; 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: nowrap; 
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Spacing between emoji and text */
+}
+
+.menu-item:hover { 
+    color: #fff; 
+    background: hsl(104, 43%, 14%); 
+}
+
+/* 5. Main Content Area */
+#main-content {
+    padding: 25px 40px; 
+    background-color: #f8f9fa;
+    flex-grow: 1; 
+    overflow-y: auto;
+}
+
+.admin-block {
+    background: white; padding: 25px; border-radius: 10px;
+    margin-bottom: 25px; box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    display: none; animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 6. Dashboard & Stats */
+.brand-story-compact { display: flex; gap: 20px; margin-bottom: 25px; }
+.story-card {
+    flex: 1; background: #fafafa; padding: 18px;
+    border-left: 4px solid hsl(104, 43%, 14%); border-radius: 6px;
+}
+.story-card h2 { font-size: 16px; margin: 0 0 8px; color: hsl(104, 43%, 14%); }
+.story-card p { font-size: 13.5px; margin: 0; font-style: italic; color: #444; line-height: 1.5; }
+
+.card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.stat-card { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; text-align: center; }
+.stat-value { font-size: 26px; font-weight: bold; color: hsl(104, 43%, 14%); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+
+/* 7. MODERN FORM STYLING - FIXED */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px; /* Limits width to keep form elegant */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Removes the "plain" browser input look */
+.form-group input, 
+.form-group select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+}
+
+.form-group input:focus {
+    border-color: hsl(104, 43%, 14%);
+    box-shadow: 0 0 5px rgba(45, 66, 25, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* 8. Buttons & Logout Styles */
+.btn-success, .btn-danger, .btn-secondary {
+    padding: 10px 25px !important; 
+    border: none !important; 
+    border-radius: 6px !important;
+    font-weight: 600 !important; 
+    cursor: pointer !important; 
+    transition: transform 0.2s, opacity 0.2s; 
+    font-size: 14px !important;
+    display: inline-block;
+}
+
+.btn-success { background: #28a745; color: white; }
+.btn-danger { background: #e63946 ; color: white ; }
+.btn-secondary { background: #4a4a4a ; color: white ; }
+
+.btn-danger:hover, .btn-secondary:hover, .btn-success:hover { 
+    transform: translateY(-2px); 
+    opacity: 0.9; 
+}
+
+.logout-container {
+    text-align: center;
+    padding: 50px 10px;
+    max-width: 500px;
+    margin: 40px auto; 
+}
+
+.logout-icon {
+    font-size: 70px; display: block; margin-bottom: 25px;
+    color: hsl(104, 43%, 14%);
+}
+
+.logout-actions {
+    display: flex !important; 
+    justify-content: center !important; 
+    gap: 20px; 
+    margin-top: 30px;
+}
+
+/* 9. Footer */
+#footer-part {
+    background-color: hsl(104, 43%, 14%);
+    color: white; display: flex; justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 40px; 
+    font-size: 11px; 
+    flex-shrink: 0; 
+    border-top: 2px solid rgba(255,255,255,0.1);
+}

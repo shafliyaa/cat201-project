@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="styles.css">
 <!DOCTYPE html> 
 <html>
     <head>
@@ -292,6 +293,259 @@
                     </div>
                 </div>
             </div>
+
+
+
+        <div id="checkout-page" class="page">
+    <form method="POST">
+        <section id="shipping-details">
+            <h2>1. Delivery Details</h2>
+            
+            <fieldset id="contact-info-checkout" style="width: 100%; margin-bottom: 20px;">
+                 <legend>Contact Information</legend>
+                <input type="email" id="email" name="email" required placeholder="Email Address">
+                <input type="tel" id="phone" name="phone" required placeholder="Phone Number" style="margin-top: 15px;">
+            </fieldset>
+
+            <fieldset>
+                <legend>Shipping Address</legend>
+                <input type="text" id="full-name" name="full_name" required placeholder="Full Name">
+                <input type="text" id="address-line1" name="address_line1" required placeholder="Street Address">
+                <input type="text" id="city" name="city" required placeholder="City">
+                
+                <select id="State" name="State" required>
+                    <option value="">-- Select State --</option>
+                    <option value="jhr">Johor</option>
+                        <option value="kdh">Kedah</option>
+                        <option value="kln">Kelantan</option>
+                        <option value="kl">Kuala Lumpur</option>
+                        <option value="lab">Labuan</option>
+                        <option value="mal">Malacca</option>
+                        <option value="ns">Negeri Sembilan</option>
+                        <option value="phg">Pahang</option>
+                        <option value="png">Penang</option>
+                        <option value="prk">Perak</option>
+                        <option value="prl">Perlis</option>
+                        <option value="pj">Putrajaya</option>
+                        <option value="sbh">Sabah</option>
+                        <option value="swk">Sarawak</option>
+                        <option value="slg">Selangor</option>
+                        <option value="trg">Terengganu</option>
+                    </select>
+
+                <input type="text" id="postcode" name="postcode" required placeholder="Postcode">
+            </fieldset>
+        </section>
+
+        <section id="payment-details">
+            <h2>2. Payment Method</h2>
+            <div style="margin-bottom: 20px; display: flex; gap: 20px;">
+                <label><input type="radio" name="payment_method" value="card" checked> Card</label>
+                <label><input type="radio" name="payment_method" value="fpx"> FPX</label>
+            </div>
+            
+            <fieldset id="card-info">
+                <legend>Card Details</legend>
+                <input type="text" id="card-number" name="card_number" placeholder="Card Number">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+                    <input type="text" id="cvc" name="cvc" placeholder="CVC">
+                </div>
+            </fieldset>
+        </section>
+        
+        <button type="submit" id="place-order-btn">Complete Purchase</button>
+    </form>
+
+    <div class="summary-section">
+        <section id="order-summary">
+            <h2>Your Order</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item (Qty)</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td>RM 0.00</td>
+                    </tr>
+                    <tr style="font-weight: bold; color: #4B0082;">
+                        <td>Grand Total:</td>
+                        <td>RM 0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+<div id="order-history-page" class="page">
+
+    <div class="history-container">
+
+        <h1 class="history-title">Order History</h1>
+
+        
+
+        <div class="order-card">
+
+            <div class="order-header">
+
+                <div>
+
+                    <p class="label">Order Placed</p>
+
+                    <p class="value"> </p>
+
+                </div>
+
+                <div>
+
+                    <p class="label">Order ID</p>
+
+                    <p class="value"> </p>
+
+                </div>
+
+                <div>
+
+                    <p class="label">Status</p>
+
+                    <p class="value status-delivered"> </p>
+
+                </div>
+
+                <div class="total-section">
+
+                    <p class="label">Total</p>
+
+                    <p class="value"> </p>
+
+                </div>
+
+            </div>
+
+
+
+            <table class="history-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Product</th>
+
+                        <th>Qty</th>
+
+                        <th>Price</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td> </td>
+
+                        <td> </td>
+
+                        <td> </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <button id="return-home-btn" onclick="location.href='index.html'">Back to Shopping</button>
+
+    </div>
+
+</div>
+
+<div id="profile-page" class="page">
+    <div class="profile-layout">
+        <aside class="profile-sidebar">
+            <nav>
+                <div class="sidebar-group">
+                    <h3>Manage My Account</h3>
+                    <ul>
+                        <li><a href="#" class="active-link">My Profile</a></li>
+                        <li><a href="#">Address Book</a></li>
+                        <li><a href="#">My Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <h3>My Orders</h3>
+                    <ul>
+                        <li><a href="#">My Returns</a></li>
+                        <li><a href="#">My Cancellations</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <h3 class="standalone-link">My Wishlist</h3>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <div class="profile-form-card">
+                <h2 class="form-title">Edit Your Profile</h2>
+                
+                <form id="edit-profile-form">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" >
+                        </div>
+                        <div class="input-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" >
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="profile-email">Email</label>
+                            <input type="email" id="profile-email" >
+                        </div>
+                        <div class="input-group">
+                            <label for="profile-address">Address</label>
+                            <input type="text" id="profile-address" >
+                        </div>
+                    </div>
+
+                    <div class="password-changes">
+                        <label>Password Changes</label>
+                        <input type="password" placeholder="Current Password">
+                        <input type="password" placeholder="New Password">
+                        <input type="password" placeholder="Confirm New Password">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel">Cancel</button>
+                        <button type="submit" class="btn-save">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
 
             <div id="footer-part">
                 <div>

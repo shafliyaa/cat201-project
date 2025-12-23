@@ -251,3 +251,41 @@ innerCapBtn.addEventListener("click", ()=>{
 
 
 
+const proceedCheckOutBtn = document.getElementById("proceed-checkout-button");
+const checkOutPage = document.getElementById("checkout-page");
+
+proceedCheckOutBtn.addEventListener("click",() =>{
+  showCheckOutPage();
+})
+
+function showCheckOutPage(){
+  const pages = document.querySelectorAll(".page");
+
+  pages.forEach(page=>{
+    page.style.display ="none";
+  })
+
+  checkOutPage.style.display = "flex";
+
+}
+
+
+const profilePage = document.getElementById("profile-page");
+
+// Link the profile button to the function
+profileBtn.addEventListener("click", () => {
+    showProfilePage();
+});
+
+function showProfilePage() {
+    const pages = document.querySelectorAll(".page");
+    
+    // Hide all other pages
+    pages.forEach(page => {
+        page.style.display = "none";
+    });
+
+    // Show the profile page
+    profilePage.style.display = "flex"; 
+}
+
