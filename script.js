@@ -289,3 +289,27 @@ function showProfilePage() {
     profilePage.style.display = "flex"; 
 }
 
+//Function untuk connect dengan java
+async function fetchProductsFromJava() {
+    try {
+        const response = await fetch('get-products'); // Calls the @WebServlet address
+        const products = await response.json();
+
+        const container = document.getElementById("product-display-area");
+        container.innerHTML = ""; // Clear existing
+
+        products.forEach(item => {
+            container.innerHTML += `
+                <div class="product-card">
+                    <h3>${item.name}</h3>
+                    <p>Price: $${item.price.toFixed(2)}</p>
+                    <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})">
+                        Add to Cart
+                    </button>
+                </div>
+            `;
+        });
+    } catch (err) {
+        console.error("Error connecting to Java:", err);
+    }
+}
