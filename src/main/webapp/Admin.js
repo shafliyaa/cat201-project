@@ -65,6 +65,63 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // 4. Set default page on load
-    switchPage('dashboard'); 
+    // 4. Add Product form submit
+    const productForm = document.getElementById("product-form");
+    if (productForm) {
+        productForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new URLSearchParams({
+                name: document.getElementById("p-name").value,
+                category: document.getElementById("p-category").value,
+                price: document.getElementById("p-price").value,
+                stock: document.getElementById("p-stock").value,
+                image: document.getElementById("p-image").value
+            });
+
+            fetch("/cat201-project/Adminpage.html", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData
+            })
+                .then(res => {
+                    if (!res.ok) throw new Error("Failed to save product");
+                    return res.json();
+                })
+                .then(() => {
+                    loadProducts();
+                    switchPage("products");
+                })
+                .catch(err => alert(err.message));
+        });
+    }
+
+    // 5. Set default page on load
+    switchPage('dashboard');
+    loadProducts();
+
+    //6.
+    function loadProducts() {
+        fetch("cat201-project/Adminpage.html")
+            .then(res => res.json())
+            .then(products => {
+                const tbody = document.getElementById("product-table-body");
+                tbody.innerHTML = "";
+
+                products.forEach(p => {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td>${p.name}</td>
+                            <td>${p.category}</td>
+                            <td>$${p.price}</td>
+                            <td>In Stock (${p.stock})</td>
+                        </tr>
+                    `;
+                });
+            })
+            .catch(err => console.error(err));
+    }
+
 });
