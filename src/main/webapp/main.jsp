@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<%
+    // Login
+    String loginEmail = request.getParameter("login_email");
+    String loginPassword = request.getParameter("login_password");
+    
+    // Signup
+    String signupName = request.getParameter("signup_name");
+    String signupEmail = request.getParameter("signup_email");
+    String signupPassword = request.getParameter("signup_password");
+    
+    // Checkout
+    String checkoutEmail = request.getParameter("email");
+    String checkoutPhone = request.getParameter("phone");
+    String checkoutFullName = request.getParameter("full_name");
+    String checkoutAddress = request.getParameter("address_line1");
+    String checkoutCity = request.getParameter("city");
+    String checkoutState = request.getParameter("State");
+    String checkoutPostcode = request.getParameter("postcode");
+    String checkoutPayment = request.getParameter("payment_method");
+%>
+
+<!DOCTYPE html> 
 <html>
     <head>
         <meta charset="UTF-8">
@@ -27,15 +48,22 @@
             <div class="line"></div>
             <div id="login-page" class="page">
                     <img src="login-image.png" class="login-image">
-                    <div id="login-info">
+                    <div id="login-info"> 
                         <h1>Log in to HijabLuxe</h1>
                         <p>Enter your details below</p>
-                            <form id="login-form"  method="post">
-                                <input type="email" id="login-email" placeholder="Email" required>
-                                <input type="password" id="login-password" placeholder="Password" required>
-                                <input type="submit" value="Log In">
+                            <form id="login-form" method="post" action="index_test.jsp">
+                                <input type="email" id="login-email" name="login_email" placeholder="Email" required>
+                                <input type="password" id="login-password" name="login_password" placeholder="Password" required>
+                                <input type="submit" value="Log In"> 
                                 <button id="forget-password-login">Forget Password?</button>
-                            </form>                        
+                            </form>
+
+                            <% if(loginEmail != null && loginPassword != null) { %>
+                                <div style="background-color: #d4edda; padding: 10px; margin: 10px 0;">
+                                    Logged in as: <%= loginEmail %>
+                                </div>
+                            <% } %>
+                       
                     </div>
             </div>
             <div id="sign-up-page" class="page">
@@ -43,16 +71,22 @@
                 <div id="sign-up-info">
                     <h1>Create an Account</h1>
                     <p>Enter your details below</p>
-                    <form id="sign-up-form">
-                        <input type="text" id="sign-up-name" placeholder="Name" required>
-                        <input type="email" id="sign-up-email" placeholder="Email" required>
-                        <input type="password" id="sign-up-password" placeholder="Password" required>
-                        <div id="create-button">
-                            <input type="submit" id="create-account-button" value="Create Account">
-                            <p>or</p>
-                            <button id="google-button"><img src="Icon-Google.png">Sign up with Google</button>
-                        </div>
-                    </form>                  
+                        <form id="sign-up-form" method="post" action="index_test.jsp">
+                            <input type="text" id="sign-up-name" name="signup_name" placeholder="Name" required>
+                            <input type="email" id="sign-up-email" name="signup_email" placeholder="Email" required>
+                            <input type="password" name="signup_password" placeholder="Password" required>
+                            <div id="create-button">
+                                <input type="submit" id="create-account-button" value="Create Account">
+                                <p>or</p>
+                                <button id="google-button"><img src="Icon-Google.png">Sign up with Google</button>
+                            </div> 
+                        </form>
+
+                        <% if(signupName != null && signupEmail != null && signupPassword != null) { %>
+                            <div style="background-color: #d1ecf1; padding: 10px; margin: 10px 0;">
+                                Account Created for: <%= signupName %> (<%= signupEmail %>)
+                            </div>
+                        <% } %>
                     <div id="sign-up-bottom">
                         <p>Already have account?</p>
                         <button id="login-hover">Log In</button>                    
@@ -60,11 +94,10 @@
                 </div>
             </div>
 
-
             <div id="main-page" class="page">
                 <div id="main-page-header" >
                     <div id="main-page-button">
-                       
+                        
                         <button id="square-button"><span>Square</span><img src="Vector.png"></button>
                         <button id="shawl-button"><span>Shawl</span><img src="Vector.png"></button>
                         <button id="innerCap-button"><span>Inner Cap</span><img src="Vector.png"></button>
@@ -73,60 +106,59 @@
                     <div>
                         <img src="main-page.webp" id="main-page-1">
 
-
                     </div>
                 </div>
                 <div id="new-arrival">
                     <h3 class="title">New Arrival</h3>
                     <div id="new-arrival-content">
                         <div class="products" data-id="1" data-name="square Pink Kembang" data-price="45">
-                            <img src="../../../Pink%20Kembang%20BACK.webp" id="pink-kembang" class="pic">
+                            <img src="Pink Kembang BACK.webp" id="pink-kembang" class="pic">
                             <p>Square Pink Kembang</p>
                             <p>$45</p>
-                            <img class="star" src="Five%20star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="2" data-name="shawl Grey Premium" data-price="80">
-                            <img src="Grey%20Gintih%20FS.webp" id="grey-gintih" class="pic">
+                            <img src="Grey Gintih FS.webp" id="grey-gintih" class="pic">
                             <p>Shawl Grey Premium</p>
                             <p>$80</p>
-                            <img class="star" src="Five%20star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="3" data-name="shawl Black Mekkah" data-price="80">
-                            <img src="Black%20Jelaga%20FS.webp" id="shawl-black-mekkah" class="pic">
+                            <img src="Black Jelaga FS.webp" id="shawl-black-mekkah" class="pic">
                             <p>Shawl Black Mekkah</p>
                             <p>$80</p>
-                            <img class="star" src="Four%20Half%20Star.png">
+                            <img class="star" src="Four Half Star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
-                    </div>  
+                    </div>   
                 </div>
                 <div id="popular-now">
                     <h3 class="title">Popular Now</h3>
                     <div id="popular-content">
                         <div class="products" data-id="4" data-name="square Brown Husk" data-price="30">
-                            <img src="brown%20husk.webp" id="brown-husk" class="pic">
+                            <img src="brown husk.webp" id="brown-husk" class="pic">
                             <p>Square Brown Husk</p>
                             <p>$30</p>
-                            <img class="star" src="Five%20star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="5" data-name="square White Sulam" data-price="109">
-                            <img src="../../../WHITE%20PANCAR%20BACK.webp" id="white-pancar" class="pic">
+                            <img src="WHITE PANCAR BACK.webp" id="white-pancar" class="pic">
                             <p>Square White Sulam</p>
                             <p>$109</p>
-                            <img class="star" src="Five%20star.png">
+                            <img class="star" src="Five star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="6" data-name="shawl Ikatan Lite" data-price="299">
                             <img src="TudungPeople-Ikatan-Lite-03.webp" id="ikatan-style" class="pic">
                             <p>Shawl Ikatan Lite</p>
                             <p>$299</p>
-                            <img class="star" src="Four%20Half%20Star.png">
+                            <img class="star" src="Four Half Star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
-                    </div>  
+                    </div>   
                 </div>
                 <div id="main-bottom">
                     <div class="bottom-services">
@@ -135,18 +167,17 @@
                         <p>Free Delivery For Order Above $140</p>
                     </div>
                     <div class="bottom-services">
-                        <img src="../../../Services%20(1).png" id="customer-pic">
+                        <img src="Services (1).png" id="customer-pic">
                         <h3>24/7 CUSTOMER SERVICES</h3>
                         <p>Friendly 24/7 Customer Services</p>
                     </div>
                     <div class="bottom-services">
-                        <img src="../../../Services%20(2).png" id="moneyback-pic">
+                        <img src="Services (2).png" id="moneyback-pic">
                         <h3>MONEY BACK GUARANTEE</h3>
                         <p>We Return Money Within 30 Days</p>
                     </div>
                 </div>
             </div>
-
 
             <div id="square-page" class="page">
                 <h1 class="middle-title">Square</h1>
@@ -155,40 +186,39 @@
                         <img src="bawal-1.webp" id="bawal-1" class="pic">
                         <p>Bawal Printed Aura</p>
                         <p>$109</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="8" data-name="Bawal Printed Pastel" data-price="130">
                         <img src="bawal-2.webp" id="bawal-2" class="pic">
                         <p>Bawal Printed Pastel</p>
                         <p>$130</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="9" data-name="Bawal Printed Premium Aura" data-price="209">
                         <img src="bawal-3.webp" id="bawal-3" class="pic">
                         <p>Bawal Printed Premium Aura</p>
                         <p>$209</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="10" data-name="Bawal Plain Premium Aura" data-price="140">
                         <img src="bawal-4.jpg" id="bawal-4" class="pic">
                         <p>Bawal Plain Premium Aura</p>
                         <p>$140</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="11" data-name="Bawal Printed Premium Lite" data-price="150">
                         <img src="bawal-5.webp" id="bawal-5" class="pic">
                         <p>Bawal Printed Premium Lite</p>
                         <p>$150</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
             </div>
-
 
                <div id="shawl-page" class="page">
                 <h1 class="middle-title">Shawl</h1>
@@ -197,40 +227,39 @@
                         <img src="shawl-1.webp" id="shawl-1" class="pic">
                         <p>Shawl Plain Premium Red</p>
                         <p>$80</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="13" data-name="Shawl Plain Premium Grey" data-price="80">
                         <img src="shawl-2.webp" id="shawl-2" class="pic">
                         <p>Shawl Plain Premium Grey</p>
                         <p>$80</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="14" data-name="Shawl Printed Premium Aura" data-price="203">
                         <img src="shawl-3.webp" id="shawl-3" class="pic">
                         <p>Shawl Printed Premium Aura</p>
                         <p>$203</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="15" data-name="Shawl Printed Premium Meddin" data-price="200">
                         <img src="shawl-4.webp" id="shawl-4" class="pic">
                         <p>Shawl Printed Premium Meddin</p>
                         <p>$200</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="16" data-name="Shawl Printed Premium K" data-price="209">
                         <img src="shawl-5.webp" id="shawl-5" class="pic">
                         <p>Shawl Printed Premium K</p>
                         <p>$209</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
             </div>
-
 
             <div id="innercap-page" class="page">
                 <h1 class="middle-title">InnerCap</h1>
@@ -239,33 +268,32 @@
                         <img src="innercap-1.jpg" id="innercap-1" class="pic">
                         <p>Inner Cap Black</p>
                         <p>$15</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="18" data-name="Inner Cap Peach" data-price="35">
                         <img src="innercap-2.webp" id="innercap-2" class="pic">
                         <p>Inner Cap Peach</p>
                         <p>$35</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="19" data-name="Inner Ninja Premium" data-price="29">
                         <img src="innercap-3.webp" id="innercap-3" class="pic">
                         <p>Inner Ninja Premium</p>
                         <p>$29</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="20" data-name="Inner Necktie" data-price="20">
                         <img src="innercap-4.webp" id="shawl-4" class="pic">
                         <p>Inner Necktie</p>
                         <p>$20</p>
-                        <img class="star" src="Five%20star.png">
+                        <img class="star" src="Five star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
             </div>
-
 
             <div id="cart-page" class="page">
                 <h3 id="home-cart">Cart</h3>
@@ -280,7 +308,6 @@
                             </tr>
                         </thead>
                         <tbody id="cart-items">
-
 
                         </tbody>
                     </table>
@@ -302,27 +329,23 @@
 
 
 
-
-
-
         <div id="checkout-page" class="page">
-    <form method="POST">
+    <form method="POST" action="index_test.jsp">
         <section id="shipping-details">
             <h2>1. Delivery Details</h2>
-           
+            
             <fieldset id="contact-info-checkout" style="width: 100%; margin-bottom: 20px;">
                  <legend>Contact Information</legend>
                 <input type="email" id="email" name="email" required placeholder="Email Address">
                 <input type="tel" id="phone" name="phone" required placeholder="Phone Number" style="margin-top: 15px;">
             </fieldset>
 
-
             <fieldset>
                 <legend>Shipping Address</legend>
                 <input type="text" id="full-name" name="full_name" required placeholder="Full Name">
                 <input type="text" id="address-line1" name="address_line1" required placeholder="Street Address">
                 <input type="text" id="city" name="city" required placeholder="City">
-               
+                
                 <select id="State" name="State" required>
                     <option value="">-- Select State --</option>
                     <option value="jhr">Johor</option>
@@ -343,7 +366,6 @@
                         <option value="trg">Terengganu</option>
                     </select>
 
-
                 <input type="text" id="postcode" name="postcode" required placeholder="Postcode">
             </fieldset>
         </section>
@@ -355,7 +377,7 @@
                 <label><input type="radio" name="payment_method" value="card" checked> Card</label>
                 <label><input type="radio" name="payment_method" value="fpx"> FPX</label>
             </div>
-           
+            
             <fieldset id="card-info">
                 <legend>Card Details</legend>
                 <input type="text" id="card-number" name="card_number" placeholder="Card Number">
@@ -365,10 +387,20 @@
                 </div>
             </fieldset>
         </section>
-       
+        
         <button type="submit" id="place-order-btn">Complete Purchase</button>
-    </form>
 
+        <% if(checkoutEmail != null && checkoutFullName != null) { %>
+            <div style="background-color: #fff3cd; padding: 10px; margin: 10px 0;">
+                Checkout Info:<br>
+                Name: <%= checkoutFullName %><br>
+                Email: <%= checkoutEmail %><br>
+                Phone: <%= checkoutPhone %><br>
+                Address: <%= checkoutAddress %>, <%= checkoutCity %>, <%= checkoutState %>, <%= checkoutPostcode %><br>
+                Payment: <%= checkoutPayment %>
+            </div>
+        <% } %>
+    </form>
 
     <div class="summary-section">
         <section id="order-summary">
@@ -398,146 +430,96 @@
 </div>
 
 
-
-
 <div id="order-history-page" class="page">
-
 
     <div class="history-container">
 
-
         <h1 class="history-title">Order History</h1>
 
-
-       
-
+        
 
         <div class="order-card">
 
-
             <div class="order-header">
 
-
                 <div>
-
 
                     <p class="label">Order Placed</p>
 
-
                     <p class="value"> </p>
-
 
                 </div>
 
-
                 <div>
-
 
                     <p class="label">Order ID</p>
 
-
                     <p class="value"> </p>
 
-
                 </div>
-
 
                 <div>
 
-
                     <p class="label">Status</p>
-
 
                     <p class="value status-delivered"> </p>
 
-
                 </div>
-
 
                 <div class="total-section">
 
-
                     <p class="label">Total</p>
-
 
                     <p class="value"> </p>
 
-
                 </div>
-
 
             </div>
 
 
 
-
-
-
             <table class="history-table">
-
 
                 <thead>
 
-
                     <tr>
-
 
                         <th>Product</th>
 
-
                         <th>Qty</th>
-
 
                         <th>Price</th>
 
-
                     </tr>
-
 
                 </thead>
 
-
                 <tbody>
-
 
                     <tr>
 
+                        <td> </td>
 
                         <td> </td>
 
-
                         <td> </td>
-
-
-                        <td> </td>
-
 
                     </tr>
-
-
 
 
                 </tbody>
 
-
             </table>
-
 
         </div>
 
 
 
-
-
-
         <button id="return-home-btn" onclick="location.href='index.html'">Back to Shopping</button>
-
 
     </div>
 
-
 </div>
-
 
 <div id="profile-page" class="page">
     <div class="profile-layout">
@@ -552,7 +534,6 @@
                     </ul>
                 </div>
 
-
                 <div class="sidebar-group">
                     <h3>My Orders</h3>
                     <ul>
@@ -561,18 +542,16 @@
                     </ul>
                 </div>
 
-
                 <div class="sidebar-group">
                     <h3 class="standalone-link">My Wishlist</h3>
                 </div>
             </nav>
         </aside>
 
-
         <main class="profile-content">
             <div class="profile-form-card">
                 <h2 class="form-title">Edit Your Profile</h2>
-               
+                
                 <form id="edit-profile-form">
                     <div class="form-row">
                         <div class="input-group">
@@ -585,7 +564,6 @@
                         </div>
                     </div>
 
-
                     <div class="form-row">
                         <div class="input-group">
                             <label for="profile-email">Email</label>
@@ -597,14 +575,12 @@
                         </div>
                     </div>
 
-
                     <div class="password-changes">
                         <label>Password Changes</label>
                         <input type="password" placeholder="Current Password">
                         <input type="password" placeholder="New Password">
                         <input type="password" placeholder="Confirm New Password">
                     </div>
-
 
                     <div class="form-actions">
                         <button type="button" class="btn-cancel">Cancel</button>
@@ -615,7 +591,6 @@
         </main>
     </div>
 </div>
-
 
             <div id="footer-part">
                 <div>
@@ -657,6 +632,3 @@
         <script src="script.js"></script>
     </body>
 </html>
-
-
-
