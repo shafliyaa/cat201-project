@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String contextPath = request.getContextPath();
+    if (contextPath == null || contextPath.isEmpty()) {
+        contextPath = "";
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +27,7 @@
             <div class="menu-list">
                 <a href="#" class="menu-item">📊 Dashboard</a>
                 <a href="#" class="menu-item">🛍️ Products</a>
-                <a href="#" class="menu-item">➕ Add Product</a> 
+                <a href="#" class="menu-item">➕ Add Product</a>
                 <a href="#" class="menu-item">📦 Orders</a>
                 <a href="#" class="menu-item">👥 Customers</a>
                 <a href="#" class="menu-item">Log Out</a>
@@ -67,12 +73,12 @@
             </section>
 
             <section id="products" class="admin-block">
-                <h2 class="block-title">🛍️ Product Inventory</h2>
+                <h2 class="block-title">🛍️ model.Product Inventory</h2>
                 <div class="table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th>Product Name</th>
+                                <th>model.Product Name</th>
                                 <th>Category</th>
                                 <th>Price</th>
                                 <th>Stock Status</th>
@@ -85,10 +91,10 @@
             </section>
 
             <section id="add-product" class="admin-block">
-                <h2 class="block-title">➕ Add New Product</h2>
+                <h2 class="block-title">➕ Add New model.Product</h2>
                 <form id="product-form" class="admin-form">
                     <div class="form-group">
-                        <label>Product Name</label>
+                        <label>model.Product Name</label>
                         <input type="text" id="p-name" placeholder="e.g. Premium Silk Shawl" required>
                     </div>
                     <div class="form-row" style="display: flex; gap: 15px;">
@@ -110,11 +116,12 @@
                         <input type="number" id="p-stock" placeholder="50" required>
                     </div>
                     <div class="form-group">
-                        <label>Product Image URL</label>
+                        <label>model.Product Image URL</label>
                         <input type="text" id="p-image" placeholder="https://image-link.com/photo.jpg">
                     </div>
                     <div class="form-actions" style="margin-top: 20px;">
-                        <button type="submit" class="btn-success" style="background-color: #28a745; color: white; padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Save Product</button>
+                        <button type="submit" class="btn-success" style="background-color: #28a745; color: white; padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Save
+                            model.Product</button>
                         <button type="reset" class="btn-secondary" style="padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer;">Clear Form</button>
                     </div>
                 </form>

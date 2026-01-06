@@ -1,3 +1,5 @@
+package model;
+
 public class Product {
     private String name;
     private String category;
@@ -34,7 +36,13 @@ public class Product {
     // Helper method to convert product to JSON manually
     public String toJson() {
         return String.format("{\"name\":\"%s\",\"category\":\"%s\",\"price\":%s,\"stock\":%s,\"image\":\"%s\"}",
-                name, category, price, stock, image);
+                escape(name), escape(category), price, stock, escape(image));
+    }
+
+    private String escape(String value) {
+        if (value == null) return "";
+        return value.replace("\\", "\\\\").replace("\"", "\\\"");
     }
 }
+
 

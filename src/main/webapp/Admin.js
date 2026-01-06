@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Add Product form submit
+    // 4. Add Product form submit
     const productForm = document.getElementById("product-form");
     if (productForm) {
         productForm.addEventListener("submit", function (e) {
@@ -79,7 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 image: document.getElementById("p-image").value
             });
 
-            fetch("/cat201-project/Adminpage.html", {
+            // Use relative path
+            fetch("products", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -87,14 +89,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: formData
             })
                 .then(res => {
-                    if (!res.ok) throw new Error("Failed to save product");
-                    return res.json();
+                    if (!res.ok) {
+                        return res.text().then(text => {
+                            throw new Error(text || "Server error");
+                        });
+                    }
+                    return res.json().catch(() => {
+                        // Fallback if the response is not valid JSON but success (unlikely but safe)
+                        return {};
+                    });
                 })
-                .then(() => {
+                .then(data => {
+                    if(data.status && data.status === 'error') {
+                        throw new Error(data.message);
+                    }
+                    alert("Product saved successfully!");
+                    document.getElementById("product-form").reset();
                     loadProducts();
                     switchPage("products");
                 })
-                .catch(err => alert(err.message));
+                .catch(err => {
+                    console.error("Error:", err);
+                    alert("Error saving product: " + err.message);
+                });
         });
     }
 
@@ -103,25 +120,55 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
 
     //6.
+    // 6. Load products
     function loadProducts() {
-        fetch("cat201-project/Adminpage.html")
-            .then(res => res.json())
-            .then(products => {
-                const tbody = document.getElementById("product-table-body");
-                tbody.innerHTML = "";
+        // Use relative path directly - let the browser handle the context
+        const apiPath = "products";
 
-                products.forEach(p => {
-                    tbody.innerHTML += `
-                        <tr>
-                            <td>${p.name}</td>
-                            <td>${p.category}</td>
-                            <td>$${p.price}</td>
-                            <td>In Stock (${p.stock})</td>
-                        </tr>
-                    `;
+        console.log("Loading products from:", apiPath);
+
+        fetch(apiPath)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Failed to load products: " + res.status);
+                }
+                return res.text().then(text => {
+                    try {
+                        return JSON.parse(text);
+                    } catch (e) {
+                        console.error("Received invalid JSON (loadProducts):", text);
+                        throw new Error("Server returned invalid JSON. Check console for details.");
+                    }
                 });
             })
-            .catch(err => console.error(err));
+            .then(products => {
+                const tbody = document.getElementById("product-table-body");
+                if (tbody) {
+                    tbody.innerHTML = "";
+
+                    if (products.length === 0) {
+                        tbody.innerHTML = "<tr><td colspan='4' style='text-align: center;'>No products yet. Add your first product!</td></tr>";
+                    } else {
+                        products.forEach(p => {
+                            tbody.innerHTML += `
+                            <tr>
+                                <td>${p.name}</td>
+                                <td>${p.category}</td>
+                                <td>$${p.price}</td>
+                                <td>In Stock (${p.stock})</td>
+                            </tr>
+                        `;
+                        });
+                    }
+                }
+            })
+            .catch(err => {
+                console.error("Error loading products:", err);
+                const tbody = document.getElementById("product-table-body");
+                if (tbody) {
+                    tbody.innerHTML = "<tr><td colspan='4' style='text-align: center; color: red;'>Error loading products</td></tr>";
+                }
+            });
     }
 
 });

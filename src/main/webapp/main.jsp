@@ -47,11 +47,11 @@
             </div>
             <div class="line"></div>
             <div id="login-page" class="page">
-                    <img src="login-image.png" class="login-image">
+                    <img src="image/login-image.png" class="login-image">
                     <div id="login-info"> 
                         <h1>Log in to HijabLuxe</h1>
                         <p>Enter your details below</p>
-                            <form id="login-form" method="post" action="index_test.jsp">
+                            <form id="login-form" method="post" action="index.jsp">
                                 <input type="email" id="login-email" name="login_email" placeholder="Email" required>
                                 <input type="password" id="login-password" name="login_password" placeholder="Password" required>
                                 <input type="submit" value="Log In"> 
@@ -67,7 +67,7 @@
                     </div>
             </div>
             <div id="sign-up-page" class="page">
-                <img src="login-image.png" class="login-image">
+                <img src="image/login-image.png" class="login-image">
                 <div id="sign-up-info">
                     <h1>Create an Account</h1>
                     <p>Enter your details below</p>
@@ -78,7 +78,7 @@
                             <div id="create-button">
                                 <input type="submit" id="create-account-button" value="Create Account">
                                 <p>or</p>
-                                <button id="google-button"><img src="Icon-Google.png">Sign up with Google</button>
+                                <button id="google-button"><img src="image/Icon-Google.png">Sign up with Google</button>
                             </div> 
                         </form>
 
@@ -98,13 +98,13 @@
                 <div id="main-page-header" >
                     <div id="main-page-button">
                         
-                        <button id="square-button"><span>Square</span><img src="Vector.png"></button>
-                        <button id="shawl-button"><span>Shawl</span><img src="Vector.png"></button>
-                        <button id="innerCap-button"><span>Inner Cap</span><img src="Vector.png"></button>
+                        <button id="square-button"><span>Square</span><img src="image/Vector.png"></button>
+                        <button id="shawl-button"><span>Shawl</span><img src="image/Vector.png"></button>
+                        <button id="innerCap-button"><span>Inner Cap</span><img src="image/Vector.png"></button>
                     </div>
                     <div class="v-line"></div>
                     <div>
-                        <img src="main-page.webp" id="main-page-1">
+                        <img src="image/main-page.webp" id="main-page-1">
 
                     </div>
                 </div>
@@ -112,24 +112,24 @@
                     <h3 class="title">New Arrival</h3>
                     <div id="new-arrival-content">
                         <div class="products" data-id="1" data-name="square Pink Kembang" data-price="45">
-                            <img src="Pink Kembang BACK.webp" id="pink-kembang" class="pic">
+                            <img src="image/Pink%20Kembang%20BACK.webp" id="pink-kembang" class="pic">
                             <p>Square Pink Kembang</p>
                             <p>$45</p>
-                            <img class="star" src="Five star.png">
+                            <img class="star" src="image/Five%20star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="2" data-name="shawl Grey Premium" data-price="80">
-                            <img src="Grey Gintih FS.webp" id="grey-gintih" class="pic">
+                            <img src="image/Grey%20Gintih%20FS.webp" id="grey-gintih" class="pic">
                             <p>Shawl Grey Premium</p>
                             <p>$80</p>
-                            <img class="star" src="Five star.png">
+                            <img class="star" src="image/Five%20star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="3" data-name="shawl Black Mekkah" data-price="80">
-                            <img src="Black Jelaga FS.webp" id="shawl-black-mekkah" class="pic">
+                            <img src="image/Black%20Jelaga%20FS.webp" id="shawl-black-mekkah" class="pic">
                             <p>Shawl Black Mekkah</p>
                             <p>$80</p>
-                            <img class="star" src="Four Half Star.png">
+                            <img class="star" src="image/Four%20Half%20Star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                     </div>   
@@ -138,41 +138,41 @@
                     <h3 class="title">Popular Now</h3>
                     <div id="popular-content">
                         <div class="products" data-id="4" data-name="square Brown Husk" data-price="30">
-                            <img src="brown husk.webp" id="brown-husk" class="pic">
+                            <img src="image/brown%20husk.webp" id="brown-husk" class="pic">
                             <p>Square Brown Husk</p>
                             <p>$30</p>
-                            <img class="star" src="Five star.png">
+                            <img class="star" src="image/Five%20star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="5" data-name="square White Sulam" data-price="109">
-                            <img src="WHITE PANCAR BACK.webp" id="white-pancar" class="pic">
+                            <img src="image/WHITE%20PANCAR%20BACK.webp" id="white-pancar" class="pic">
                             <p>Square White Sulam</p>
                             <p>$109</p>
-                            <img class="star" src="Five star.png">
+                            <img class="star" src="image/Five%20star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                         <div class="products" data-id="6" data-name="shawl Ikatan Lite" data-price="299">
-                            <img src="TudungPeople-Ikatan-Lite-03.webp" id="ikatan-style" class="pic">
+                            <img src="image/TudungPeople-Ikatan-Lite-03.webp" id="ikatan-style" class="pic">
                             <p>Shawl Ikatan Lite</p>
                             <p>$299</p>
-                            <img class="star" src="Four Half Star.png">
+                            <img class="star" src="image/Four%20Half%20Star.png">
                             <button class="add-to-cart">Add To Cart</button>
                         </div>
                     </div>   
                 </div>
                 <div id="main-bottom">
                     <div class="bottom-services">
-                        <img src="Services.png" id="delivery-pic">
+                        <img src="image/Services.png" id="delivery-pic">
                         <h3>FREE AND FAST DELIVERY</h3>
                         <p>Free Delivery For Order Above $140</p>
                     </div>
                     <div class="bottom-services">
-                        <img src="Services (1).png" id="customer-pic">
+                        <img src="image/Services%20(1).png" id="customer-pic">
                         <h3>24/7 CUSTOMER SERVICES</h3>
                         <p>Friendly 24/7 Customer Services</p>
                     </div>
                     <div class="bottom-services">
-                        <img src="Services (2).png" id="moneyback-pic">
+                        <img src="image/Services%20(2).png" id="moneyback-pic">
                         <h3>MONEY BACK GUARANTEE</h3>
                         <p>We Return Money Within 30 Days</p>
                     </div>
@@ -183,38 +183,38 @@
                 <h1 class="middle-title">Square</h1>
                 <div id="square-product">
                     <div class="products" data-id="7" data-name="Bawal Printed Aura" data-price="109">
-                        <img src="bawal-1.webp" id="bawal-1" class="pic">
+                        <img src="image/bawal-1.webp" id="bawal-1" class="pic">
                         <p>Bawal Printed Aura</p>
                         <p>$109</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="8" data-name="Bawal Printed Pastel" data-price="130">
-                        <img src="bawal-2.webp" id="bawal-2" class="pic">
+                        <img src="image/bawal-2.webp" id="bawal-2" class="pic">
                         <p>Bawal Printed Pastel</p>
                         <p>$130</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="9" data-name="Bawal Printed Premium Aura" data-price="209">
-                        <img src="bawal-3.webp" id="bawal-3" class="pic">
+                        <img src="image/bawal-3.webp" id="bawal-3" class="pic">
                         <p>Bawal Printed Premium Aura</p>
                         <p>$209</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="10" data-name="Bawal Plain Premium Aura" data-price="140">
-                        <img src="bawal-4.jpg" id="bawal-4" class="pic">
+                        <img src="image/bawal-4.jpg" id="bawal-4" class="pic">
                         <p>Bawal Plain Premium Aura</p>
                         <p>$140</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="11" data-name="Bawal Printed Premium Lite" data-price="150">
-                        <img src="bawal-5.webp" id="bawal-5" class="pic">
+                        <img src="image/bawal-5.webp" id="bawal-5" class="pic">
                         <p>Bawal Printed Premium Lite</p>
                         <p>$150</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
@@ -224,38 +224,38 @@
                 <h1 class="middle-title">Shawl</h1>
                 <div id="shawl-product">
                     <div class="products" data-id="12" data-name="Shawl Plain Premium Red" data-price="80">
-                        <img src="shawl-1.webp" id="shawl-1" class="pic">
+                        <img src="image/shawl-1.webp" id="shawl-1" class="pic">
                         <p>Shawl Plain Premium Red</p>
                         <p>$80</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="13" data-name="Shawl Plain Premium Grey" data-price="80">
-                        <img src="shawl-2.webp" id="shawl-2" class="pic">
+                        <img src="image/shawl-2.webp" id="shawl-2" class="pic">
                         <p>Shawl Plain Premium Grey</p>
                         <p>$80</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="14" data-name="Shawl Printed Premium Aura" data-price="203">
-                        <img src="shawl-3.webp" id="shawl-3" class="pic">
+                        <img src="image/shawl-3.webp" id="shawl-3" class="pic">
                         <p>Shawl Printed Premium Aura</p>
                         <p>$203</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="15" data-name="Shawl Printed Premium Meddin" data-price="200">
-                        <img src="shawl-4.webp" id="shawl-4" class="pic">
+                        <img src="image/shawl-4.webp" id="shawl-4" class="pic">
                         <p>Shawl Printed Premium Meddin</p>
                         <p>$200</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="16" data-name="Shawl Printed Premium K" data-price="209">
-                        <img src="shawl-5.webp" id="shawl-5" class="pic">
+                        <img src="image/shawl-5.webp" id="shawl-5" class="pic">
                         <p>Shawl Printed Premium K</p>
                         <p>$209</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
@@ -265,31 +265,31 @@
                 <h1 class="middle-title">InnerCap</h1>
                 <div id="innercap-product">
                     <div class="products" data-id="17" data-name="Inner Cap Black" data-price="15">
-                        <img src="innercap-1.jpg" id="innercap-1" class="pic">
+                        <img src="image/innercap-1.jpg" id="innercap-1" class="pic">
                         <p>Inner Cap Black</p>
                         <p>$15</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="18" data-name="Inner Cap Peach" data-price="35">
-                        <img src="innercap-2.webp" id="innercap-2" class="pic">
+                        <img src="image/innercap-2.webp" id="innercap-2" class="pic">
                         <p>Inner Cap Peach</p>
                         <p>$35</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="19" data-name="Inner Ninja Premium" data-price="29">
-                        <img src="innercap-3.webp" id="innercap-3" class="pic">
+                        <img src="image/innercap-3.webp" id="innercap-3" class="pic">
                         <p>Inner Ninja Premium</p>
                         <p>$29</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="20" data-name="Inner Necktie" data-price="20">
-                        <img src="innercap-4.webp" id="shawl-4" class="pic">
+                        <img src="image/innercap-4.webp" id="shawl-4" class="pic">
                         <p>Inner Necktie</p>
                         <p>$20</p>
-                        <img class="star" src="Five star.png">
+                        <img class="star" src="image/Five%20star.png">
                         <button class="add-to-cart">Add To Cart</button>
                     </div>
                 </div>
@@ -301,7 +301,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Product</th>
+                                <th>model.Product</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Subtotal</th>
@@ -484,7 +484,7 @@
 
                     <tr>
 
-                        <th>Product</th>
+                        <th>model.Product</th>
 
                         <th>Qty</th>
 
@@ -624,8 +624,8 @@
                 <div>
                     <h3>Download</h3>
                     <p>Save $4 with App New User Only</p>
-                    <img src="qr.png">
-                    <img src="getOnApps.png">
+                    <img src="image/qr.png">
+                    <img src="image/getOnApps.png">
                 </div>
             </div>
         </div>
