@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet Mappings -->
+    <!-- Servlet Mappings -->
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>Controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminPageController</servlet-name>
+        <servlet-class>Controller.AdminPageController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminPageController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+</web-app>
+        <!-- Servlet Mappings -->
+<!-- Servlet Mappings -->
