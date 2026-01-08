@@ -7,4 +7,26 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+    <!-- Servlet Mappings -->
+    <!-- Servlet Mappings -->
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>Controller.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminPageController</servlet-name>
+        <servlet-class>Controller.AdminPageController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminPageController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
 </web-app>
+        <!-- Servlet Mappings -->
+<!-- Servlet Mappings -->

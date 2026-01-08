@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String contextPath = request.getContextPath();
+    if (contextPath == null || contextPath.isEmpty()) {
+        contextPath = "";
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +27,7 @@
             <div class="menu-list">
                 <a href="#" class="menu-item">📊 Dashboard</a>
                 <a href="#" class="menu-item">🛍️ Products</a>
-                <a href="#" class="menu-item">➕ Add Product</a> 
+                <a href="#" class="menu-item">➕ Add Product</a>
                 <a href="#" class="menu-item">📦 Orders</a>
                 <a href="#" class="menu-item">👥 Customers</a>
                 <a href="#" class="menu-item">Log Out</a>
@@ -110,11 +116,12 @@
                         <input type="number" id="p-stock" placeholder="50" required>
                     </div>
                     <div class="form-group">
-                        <label>Product Image URL</label>
+                        <label>model.Product Image URL</label>
                         <input type="text" id="p-image" placeholder="https://image-link.com/photo.jpg">
                     </div>
                     <div class="form-actions" style="margin-top: 20px;">
-                        <button type="submit" class="btn-success" style="background-color: #28a745; color: white; padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Save Product</button>
+                        <button type="submit" class="btn-success" style="background-color: #28a745; color: white; padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Save
+                            Product</button>
                         <button type="reset" class="btn-secondary" style="padding: 10px 25px; border: none; border-radius: 6px; cursor: pointer;">Clear Form</button>
                     </div>
                 </form>
