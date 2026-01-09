@@ -7,16 +7,14 @@ public class Order {
     private int id;
     private String customerName;
     private double amount;
-    private String status; // "processing" or "completed"
+    private String status;
     private String orderDate;
 
-    private static int nextId = 1001;
-
-    public Order(String customerName, double amount) {
-        this.id = nextId++;
+    public Order(int id, String customerName, double amount, String status) {
+        this.id = id;
         this.customerName = customerName;
         this.amount = amount;
-        this.status = "processing"; // Default status
+        this.status = status;
         this.orderDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
 
@@ -26,5 +24,4 @@ public class Order {
     public double getAmount() { return amount; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
-    public String getOrderDate() { return orderDate; }
 }

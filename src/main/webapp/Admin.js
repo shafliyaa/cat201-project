@@ -141,34 +141,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 7. load order
+    loadOrders();
+
     function loadOrders() {
         fetch("orders")
             .then(res => res.json())
             .then(orders => {
-                const tbody = document.getElementById("orders-table-body");
-                tbody.innerHTML = "";
+                const orderTable = document.querySelector("#orders tbody");
+                orderTable.innerHTML = ""; // Clear existing rows
 
-                orders.forEach(o => {
-                    const button = o.status === 'processing'
-                        ? `<button onclick="updateStatus(${o.id}, 'completed')" class="btn-success">Complete Payment</button>`
-                        : "<span>Completed ✅</span>";
+                orders.forEach(order => {
+                    const isProcessing = order.status === 'processing';
+                    const statusClass = isProcessing ? 'processing' : 'completed';
 
-                    tbody.innerHTML += `
+                    // Add a button only if it's processing
+                    const actionButton = isProcessing
+                        ? `<button onclick="completeOrder(${order.id})" class="btn-success" style="padding: 5px 10px; font-size: 12px;">Finish Payment</button>`
+                        : `<span>-</span>`;
+
+                    orderTable.innerHTML += `
                     <tr>
-                        <td>#HL-${o.id}</td>
-                        <td>${o.customer}</td>
-                        <td>$${o.amount.toFixed(2)}</td>
-                        <td><span class="status-badge ${o.status}">${o.status}</span></td>
-                        <td>${button}</td>
-                    </tr>`;
+                        <td>#HL-${order.id}</td>
+                        <td>${order.customer}</td>
+                        <td>$${order.amount.toFixed(2)}</td>
+                        <td>
+                            <span class="status-badge ${statusClass}">${order.status}</span>
+                            <div style="margin-top: 5px;">${actionButton}</div>
+                        </td>
+                    </tr>
+                `;
                 });
             });
     }
 
-    function updateStatus(id, newStatus) {
-        const params = new URLSearchParams({ action: 'updateStatus', id: id, status: newStatus });
-        fetch("orders", { method: "POST", body: params }).then(() => loadOrders());
-    }
+// Global function to update status
+    window.completeOrder = function(orderId) {
+        const params = new URLSearchParams();
+        params.append('action', 'updateStatus');
+        params.append('id', orderId);
+        params.append('status', 'completed');
+
+        fetch("orders", {
+            method: "POST",
+            body: params
+        }).then(() => {
+            alert("Payment Completed!");
+            loadOrders(); // Refresh table
+        });
+    };
 
 
 });

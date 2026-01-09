@@ -8,9 +8,9 @@ public class OrderService {
     private List<Order> orders = new ArrayList<>();
 
     private OrderService() {
-        // Adding some dummy orders for the Admin to see initially
-        orders.add(new Order("Siti Aminah", 89.00));
-        orders.add(new Order("Syarifah Asri", 70.00));
+        // Initial mock data
+        orders.add(new Order(1109, "Siti Aminah", 89.00, "processing"));
+        orders.add(new Order(1108, "Syarifah Asri", 70.00, "processing"));
     }
 
     public static OrderService getInstance() {
@@ -20,9 +20,12 @@ public class OrderService {
 
     public List<Order> getAllOrders() { return orders; }
 
-    public void addOrder(Order order) { orders.add(0, order); }
+    public void addOrder(String name, double total) {
+        int newId = orders.isEmpty() ? 1110 : orders.get(0).getId() + 1;
+        orders.add(0, new Order(newId, name, total, "processing"));
+    }
 
-    public void updateOrderStatus(int id, String status) {
+    public void updateStatus(int id, String status) {
         for (Order o : orders) {
             if (o.getId() == id) {
                 o.setStatus(status);
