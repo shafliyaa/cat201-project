@@ -286,6 +286,17 @@ function showProfilePage() {
     });
 
     // Show the profile page
-    profilePage.style.display = "flex"; 
+    profilePage.style.display = "flex";
 }
 
+//still cannot load waiting user
+function processCheckout(totalAmount) {
+    const params = new URLSearchParams({
+        action: 'create',
+        customer: 'Customer Name', // Get this from session/form
+        amount: totalAmount
+    });
+
+    fetch("orders", { method: "POST", body: params })
+        .then(() => alert("Checkout successful! Order is processing."));
+}

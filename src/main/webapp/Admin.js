@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. Add Product form submit
-    // 4. Add Product form submit
     const productForm = document.getElementById("product-form");
     if (productForm) {
         productForm.addEventListener("submit", function (e) {
@@ -140,5 +139,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
     }
+
+    // 7. load order
+    function loadOrders() {
+        fetch("orders")
+            .then(res => res.json())
+            .then(orders => {
+                const tbody = document.getElementById("orders-table-body");
+                tbody.innerHTML = "";
+
+                orders.forEach(o => {
+                    const button = o.status === 'processing'
+                        ? `<button onclick="updateStatus(${o.id}, 'completed')" class="btn-success">Complete Payment</button>`
+                        : "<span>Completed ✅</span>";
+
+                    tbody.innerHTML += `
+                    <tr>
+                        <td>#HL-${o.id}</td>
+                        <td>${o.customer}</td>
+                        <td>$${o.amount.toFixed(2)}</td>
+                        <td><span class="status-badge ${o.status}">${o.status}</span></td>
+                        <td>${button}</td>
+                    </tr>`;
+                });
+            });
+    }
+
+    function updateStatus(id, newStatus) {
+        const params = new URLSearchParams({ action: 'updateStatus', id: id, status: newStatus });
+        fetch("orders", { method: "POST", body: params }).then(() => loadOrders());
+    }
+
 
 });
