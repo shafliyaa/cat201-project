@@ -1,20 +1,23 @@
-body{
-    color: black;
-    height: 100%;
-    margin: 0;
+* {
+  box-sizing: border-box;
 }
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* This stops the left/right scroll */
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 html {
   scroll-behavior: smooth;
-}
-
-#header-part{
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
 }
 
 
@@ -22,44 +25,55 @@ html {
     display: none;
 }
 
+
 .line {
     width: 100%;
     height: 1px;
     background-color: rgb(182, 176, 176);
     margin: 20px 0;
-  }
+}
 
+
+.v-line {
+  width: 0.5px;
+  height: 430px;
+  background-color: rgb(182, 176, 176);
+  margin-right: 50px;
+}
+
+
+/*---header part---*/
+#header-part{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+/*---navigation bar---*/
 #nav-bar{
     display: flex;
     background-color: white;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 400px;
-    padding-top: 30px;
+    gap: 40px;
+    padding: 20px 5%;
+    flex-wrap: wrap;
 }
+
 
 #nav-bar-button{
     display: flex;
     justify-content: center;
     gap: 40px;
     padding-top: 0;
-    
-}
-
-#footer-part{
-    font-size: 14px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center; 
-    gap: 30px;
-    padding-bottom: 30px;
-    padding-top: 15px;
-}
-
-.login-image{
-    max-height: 20%;
-    width: 60%;
+   
 }
 
 #home-button,
@@ -74,6 +88,7 @@ html {
     border: 0;
 }
 
+
 #contact-button{
   text-decoration: none;
   padding: 8px 16px;
@@ -82,14 +97,17 @@ html {
   color: black;
 }
 
+
 #signup-button{
     display: block;
 }
+
 
 #profile-button,
 #cart-button{
     display: none;
 }
+
 
 #home-button:hover,
 #contact-button:hover,
@@ -101,19 +119,43 @@ html {
     opacity: 0.8;
 }
 
+/*---footer---*/
+#footer-part{
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    display: flex;
+
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+
+
+/*---login and signup---*/
+.login-image{
+    max-height: 20%;
+    width: 60%;
+}
+
+
 #login-page{
     padding-bottom: 160px;
     margin-left: 0;
 }
 
+
 #login-info{
     display: flex;
     flex-direction: column;
     padding: 5%;
-    padding-top: 130px;
-    margin-left: 25px;
-    gap: 20px;
+    padding-top: 50px;    /* Reduced from 130px */
+    margin: 0 auto;       /* Center it */
+    max-width: 600px;     /* Limit width */
+    width: 100%;
 }
+
 
 #login-email,
 #login-password,
@@ -137,47 +179,65 @@ html {
   border-bottom-color:  #616060;
 }
 
+
 #login-hover{
     border: none;
     background-color: white;
 }
 
+
 #login-hover:hover{
     opacity: 0.8;
 }
 
+#login-form,
+#sign-up-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #login-info-bottom{
     display: flex;
-    gap: 100px;
+    flex-wrap: wrap;      /* Allow wrapping on small screens */
+    gap: 20px;
 }
+
 
 #forget-password-login{
     border: none;
     background-color: white;
 }
 
+
 #forget-password-login:hover{
     opacity: 0.8;
 }
+
 
 #sign-up-page{
     padding-bottom: 160px;
     margin-left: 0;
 }
 
+
 #sign-up-info{
-    padding: 5%;
-    padding-top: 130px;
-    margin-left: 25px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    padding: 5%;
+    padding-top: 50px;    /* Reduced from 130px */
+    margin: 0 auto;       /* Center it */
+    max-width: 600px;     /* Limit width */
+    width: 100%;
 }
+
 
 #sign-up-bottom{
     display: flex;
-    gap: 300px;
+    flex-wrap: wrap;      /* Allow wrapping on small screens */
+    gap: 20px;
 }
+
 
 #create-button{
     display: flex;
@@ -186,10 +246,13 @@ html {
     align-items: center;
 }
 
+
 #create-account-button,
-#google-button{
-    width: 500px;
+#google-button {
+    width: 100%;
+    max-width: 500px;
     height: 50px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
 }
 
 #google-button{
@@ -199,20 +262,23 @@ html {
     gap: 10px;
 }
 
-
+/*---home---*/
 #main-page{
     display: flex;
     flex-direction: column;
- 
+    align-items: center;  /* Center content */
     padding-bottom: 160px;
-    margin-left: 100px;
-    margin-right: 100px;
- 
+    margin: 0 auto;       /* Center the block */
+    max-width: 1200px;    /* Prevent stretching on huge monitors */
+    width: 90%;           /* Add breathing room on sides */
 }
 
-#main-page-1{
-    height: 400px;
-    width: 800px;
+
+#main-page-1 {
+    width: 100%;          /* Was 800px - allows shrinking */
+    max-width: 800px;     /* Stop it from getting too big */
+    height: auto;         /* Maintain aspect ratio */
+    object-fit: cover;
 }
 
 
@@ -222,18 +288,13 @@ html {
     font-size: 17px;
 }
 
+
 #main-page-button{
     display: block;
     margin-right: 50px;
     padding-right: 20px ;
 }
 
-.v-line {
-  width: 0.5px;
-  height: 430px;
-  background-color: rgb(182, 176, 176);
-  margin-right: 50px;
-}
 
 #square-button,
 #shawl-button,
@@ -254,9 +315,11 @@ html {
     opacity: 0.8;
 }
 
+
 .title{
     margin-left: 180px;
 }
+
 
 #new-arrival,
 #popular-now{
@@ -266,6 +329,7 @@ html {
     margin-top: 100px;
 }
 
+
 #new-arrival-content,
 #popular-content{
     display: flex;
@@ -274,15 +338,18 @@ html {
 }
 
 
-
-.pic{
-    height: 280px;
-    width: 200px;
+/* 1. Make product images fluid so they don't overflow grid cells */
+.pic {
+    aspect-ratio: 2/3;  /* Optional: Keeps them consistent rectangular shape */
+    width: 100%;
+    height: 300px;       /* Force everyone to be this tall */
+    object-fit: cover;   /* Crops the excess so it looks good */
 }
 
 .pic:hover{
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
+
 
 .products{
     display: flex;
@@ -290,24 +357,29 @@ html {
     gap: 10px;
 }
 
+
 .star{
     height: 20px;
     width: 100px;
 }
 
-#main-bottom{
+
+#main-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-    gap: 150px;
+    gap: 5%;            /* Changed from fixed 150px gap */
+    flex-wrap: wrap;    /* Allows wrapping on tablets */
 }
+
 
 .bottom-services{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 #delivery-pic,
 #customer-pic,
@@ -317,9 +389,12 @@ html {
 }
 
 
+
+/*---cart page---*/
 #cart-page{
     flex-direction: column;
 }
+
 
 #cart-bottom{
     display: flex;
@@ -327,33 +402,45 @@ html {
     justify-content: center;
 }
 
-#cart-total{
+
+#cart-total {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    padding: 20px 100px 20px 100px;
+    padding: 20px;      /* Changed from padding: 20px 100px 20px 100px */
+    width: 100%;
+    max-width: 500px;   /* Prevents it from getting ugly wide */
+    margin: 0 auto;     /* Centers it */
 }
+
 
 #return-button{
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
+
 #cart{
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
     justify-content: center;
+    width: 100%;
+    overflow-x: auto; /* Adds a scrollbar if table is too wide */
 }
+
 
 th,td{
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 70px;
+    padding: 15px;        /* Reduced from 50px */
+    
+    text-align: left;
 }
 
-#home-cart{
-    margin-left: 200px;
+
+#home-cart {
+    margin: 20px auto;  /* Changed from margin-left: 200px */
+    max-width: 1200px;  /* Keeps it contained on big screens */
+    width: 95%;         /* Adds breathing room on phones */
 }
 
 #return-button{
@@ -362,6 +449,7 @@ th,td{
     gap: 20px;
 }
 
+/*---products---*/
 #square-page,
 #shawl-page,
 #innercap-page{
@@ -370,6 +458,7 @@ th,td{
     margin-bottom: 200px;
     justify-content: center;
 }
+
 
 #square-product,
 #shawl-product,
@@ -383,39 +472,35 @@ th,td{
     gap: 30px;
 }
 
+
 .add-to-cart{
     height: 30px;
     width: 100px;
 }
+
 
 .middle-title{
     display: flex;
     justify-content: center;
 }
 
-#login-form,
-#sign-up-form{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 
 #shipping-details{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
+
 
 #contact-info{
     height: 200px;
     width: 100px;
 }
 
+
 #checkout-page {
     /* Set to flex to align form and summary side-by-side */
     display: none; /* Controlled by your .page class logic */
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     gap: 80px;
@@ -423,6 +508,7 @@ th,td{
     max-width: 1200px;
     margin: 0 auto;
 }
+
 
 /* Ensure form elements match your login/signup style */
 #checkout-page form {
@@ -432,7 +518,8 @@ th,td{
     flex: 1.5;
 }
 
-#checkout-page input, 
+
+#checkout-page input,
 #checkout-page select {
     border: none;
     border-bottom: 2px solid #ccc;
@@ -441,19 +528,22 @@ th,td{
     width: 100%;
 }
 
-#checkout-page input:focus, 
+
+#checkout-page input:focus,
 #checkout-page select:focus {
     border-bottom-color: #616060;
 }
 
+
 /* Shipping and Payment Headings */
-#shipping-details h2, 
+#shipping-details h2,
 #payment-details h2 {
     font-size: 1.2em;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 
 /* Update the Fieldset inside the checkout page */
 #checkout-page fieldset {
@@ -467,6 +557,7 @@ th,td{
     box-sizing: border-box;
 }
 
+
 /* Specific fix for Email and Phone alignment */
 #contact-info {
     display: flex;
@@ -475,10 +566,12 @@ th,td{
     width: 100%;
 }
 
+
 #checkout-page legend {
     font-weight: bold;
     padding: 0 10px;
 }
+
 
 /* Order Summary Box */
 .summary-section {
@@ -488,17 +581,20 @@ th,td{
     min-width: 300px;
 }
 
+
 #order-summary table {
     width: 100%;
     border-collapse: collapse;
 }
 
-#order-summary th, 
+
+#order-summary th,
 #order-summary td {
     padding: 15px 5px;
     text-align: left;
     border-bottom: 1px solid #eee;
 }
+
 
 /* Complete Purchase Button (Matching your Google/Create button style) */
 #place-order-btn {
@@ -512,36 +608,16 @@ th,td{
     margin-top: 20px;
 }
 
+
 #place-order-btn:hover {
     opacity: 0.8;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    #checkout-page {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 50px;
-    }
-    
-    #checkout-page form, 
-    .summary-section {
-        width: 100%;
-    }
-}
-
-#order-history-page {
-    display: flex; /* Change to none if you are using your page-switching script */
-    justify-content: center;
-    padding: 50px 5%;
-    background-color: #f9f9f9;
-    min-height: 80vh;
 }
 
 .history-container {
     width: 100%;
     max-width: 900px;
 }
+
 
 .history-title {
     font-size: 24px;
@@ -551,6 +627,7 @@ th,td{
     margin-bottom: 30px;
 }
 
+
 .order-card {
     background-color: white;
     border: 1px solid #ddd;
@@ -558,6 +635,7 @@ th,td{
     border-radius: 4px;
     overflow: hidden; /* Keeps table within rounded corners */
 }
+
 
 /* Header strip of the order card */
 .order-header {
@@ -570,6 +648,7 @@ th,td{
     gap: 20px;
 }
 
+
 .order-header .label {
     font-size: 11px;
     text-transform: uppercase;
@@ -577,21 +656,25 @@ th,td{
     margin: 0;
 }
 
+
 .order-header .value {
     font-size: 14px;
     font-weight: bold;
     margin: 5px 0 0 0;
 }
 
+
 .status-delivered {
     color: green;
 }
+
 
 /* Table inside the card */
 .history-table {
     width: 100%;
     border-collapse: collapse;
 }
+
 
 .history-table th {
     text-align: left;
@@ -600,16 +683,19 @@ th,td{
     padding: 15px 20px 5px 20px;
 }
 
+
 .history-table td {
     padding: 15px 20px;
     border-bottom: 1px solid #eee;
     font-size: 14px;
 }
 
+
 /* Remove border from last row */
 .history-table tr:last-child td {
     border-bottom: none;
 }
+
 
 /* Back button matching your theme */
 #return-home-btn {
@@ -623,9 +709,11 @@ th,td{
     transition: opacity 0.3s;
 }
 
+
 #return-home-btn:hover {
     opacity: 0.8;
 }
+
 
 /* Mobile Tweak */
 @media (max-width: 600px) {
@@ -634,7 +722,6 @@ th,td{
         gap: 10px;
     }
 }
-
 
 
 /* Profile Page Layout Container */
@@ -647,10 +734,12 @@ th,td{
     font-family: 'Poppins', sans-serif;
 }
 
+
 /* Sidebar Navigation Styling */
 .profile-sidebar {
     width: 250px;
 }
+
 
 .sidebar-group h3 {
     font-size: 16px;
@@ -659,15 +748,18 @@ th,td{
     color: #000;
 }
 
+
 .sidebar-group ul {
     list-style: none;
     padding-left: 35px;
     margin-bottom: 25px;
 }
 
+
 .sidebar-group ul li {
     margin-bottom: 15px;
 }
+
 
 .sidebar-group ul li a {
     text-decoration: none;
@@ -676,15 +768,18 @@ th,td{
     transition: color 0.3s;
 }
 
-.sidebar-group ul li a:hover, 
+
+.sidebar-group ul li a:hover,
 .active-link {
     color: #DB4444 !important; /* Signature Red for active page */
 }
+
 
 /* Profile Form Card Styling */
 .profile-content {
     flex: 1; /* Form takes up remaining space */
 }
+
 
 .profile-form-card {
     padding: 40px 80px;
@@ -693,12 +788,14 @@ th,td{
     border-radius: 4px;
 }
 
+
 .form-title {
     color: #DB4444;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 25px;
 }
+
 
 /* Form Row for side-by-side inputs */
 .form-row {
@@ -707,9 +804,11 @@ th,td{
     margin-bottom: 25px;
 }
 
+
 .input-group {
     flex: 1;
 }
+
 
 .profile-page label {
     display: block;
@@ -717,6 +816,7 @@ th,td{
     font-size: 16px;
     color: #000;
 }
+
 
 .profile-page input {
     width: 100%;
@@ -728,18 +828,22 @@ th,td{
     box-sizing: border-box;
 }
 
+
 .password-changes {
     margin-top: 10px;
 }
+
 
 .password-changes label {
     display: block;
     margin-bottom: 8px;
 }
 
+
 .password-changes input {
     margin-bottom: 15px;
 }
+
 
 /* Action Buttons */
 .form-actions {
@@ -750,6 +854,7 @@ th,td{
     margin-top: 25px;
 }
 
+
 .btn-cancel {
     background: none;
     border: none;
@@ -757,6 +862,7 @@ th,td{
     cursor: pointer;
     color: #000;
 }
+
 
 .btn-save {
     background: #DB4444;
@@ -770,9 +876,11 @@ th,td{
     transition: background 0.3s;
 }
 
+
 .btn-save:hover {
     background: #c13a3a;
 }
+
 
 /* Responsive adjustments for Tablets/Mobile */
 @media (max-width: 992px) {
@@ -781,16 +889,17 @@ th,td{
         margin: 40px auto;
         gap: 40px;
     }
-    
+   
     .profile-form-card {
         padding: 30px;
     }
-    
+   
     .form-row {
         flex-direction: column;
         gap: 15px;
     }
 }
+
 
 /* Update the general selector to target the ID specifically */
 #profile-page label {
@@ -799,6 +908,7 @@ th,td{
     font-size: 16px;
     color: #000;
 }
+
 
 /* Ensure inputs take up 100% of their parent column */
 #profile-page input {
@@ -811,19 +921,23 @@ th,td{
     box-sizing: border-box; /* Crucial: includes padding in the width */
 }
 
+
 /* Fix the Password Section to stack inputs vertically */
 .password-changes {
     margin-top: 24px;
 }
 
+
 .password-changes label {
     margin-bottom: 12px;
 }
+
 
 .password-changes input {
     display: block;
     margin-bottom: 16px; /* Space between the three password fields */
 }
+
 
 /* Ensure the side-by-side rows align perfectly */
 .form-row {
@@ -833,7 +947,258 @@ th,td{
     align-items: flex-start;
 }
 
+
 /* Ensure columns are equal width */
 .input-group {
     flex: 1;
+}
+
+
+
+
+
+
+
+/* =========================================
+   TABLET & IPAD (768px to 1024px)
+   ========================================= */
+@media (max-width: 1366px) {
+    /* Adjust Main Page Layout */
+    #main-page-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+      
+ 
+        #nav-bar {
+            gap: 20px; /* Reduces gap so buttons stay on one line longer */
+        }
+
+
+
+    .v-line {
+        display: none; /* Hide vertical line on tablets/mobile */
+    }
+
+    .pic {
+        aspect-ratio: 2/3;  /* Optional: Keeps them consistent rectangular shape */
+        width: 100%;
+        height: 200px;       /* Force everyone to be this tall */
+        object-fit: cover;   /* Crops the excess so it looks good */
+    }
+
+    #main-page-1 {
+        width: 100%;          /* Was 800px - allows shrinking */
+        max-width: 1000px;
+        height: auto;         /* Maintain aspect ratio */
+        object-fit: cover;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    #main-page-button {
+        margin-right: 0;
+        padding-right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    /* Product Grid: 3 Columns on Tablet */
+    #square-product,
+    #shawl-product,
+    #innercap-product {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    /* Services Section */
+    #main-bottom {
+        gap: 50px;
+        margin-top: 60px;
+    }
+
+    /* Checkout & Profile */
+    #checkout-page, 
+    .profile-layout {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 5%;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+        display: flex;
+        overflow-x: auto; /* Allow scrolling sidebar links if needed */
+        padding-bottom: 10px;
+    }
+
+    .sidebar-group ul {
+        display: flex;
+        gap: 20px;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    #footer-part{
+        font-size: 14px;
+        background-color: black;
+        color: white;
+        display: flex;
+
+        justify-content: center;
+        gap: 30px;
+        padding-bottom: 30px;
+        padding-top: 15px;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+}
+
+/* =========================================
+   MOBILE DEVICES (Under 767px)
+   ========================================= */
+@media (max-width: 767px) {
+    .login-image{
+        display: none;
+    }
+
+    /* Navigation */
+    #nav-bar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    #nav-bar-button {
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Reduce font sizes for headers */
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+
+    /* Product Grid: 2 Columns on Mobile (Standard E-commerce style) */
+    #square-product,
+    #shawl-product,
+    #innercap-product {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
+        padding: 0 10px;
+    }
+
+    /* Reduce Image height for mobile cards */
+    .pic {
+        max-height: 200px;
+    }
+
+    
+    /* New Arrival / Popular Sections */
+    #new-arrival-content,
+    #popular-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .title {
+        margin-left: 0;      /* 1. Remove the huge desktop margin */
+        text-align: center;  /* 2. Force the text to the center */
+        width: 100%;         /* 3. Ensure the text box fills the screen width */
+    }
+
+    /* Services Section: Stack vertically */
+    #main-bottom {
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    /* Cart Table */
+    #cart {
+        display: block; /* Allows overflow-x to work */
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    th, td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* Cart Total Box */
+    #cart-total {
+        width: 90%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    /* Forms (Login, Signup, Checkout) */
+    #login-info, #sign-up-info, #checkout-page {
+        padding: 30px 5%;
+        padding-top: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Profile Page */
+    .profile-layout {
+        margin: 20px auto;
+        gap: 30px;
+    }
+    
+    .profile-form-card {
+        padding: 20px;
+    }
+    
+    .sidebar-group ul {
+        flex-wrap: wrap; /* Wrap links if too many */
+    }
+    
+    .form-actions {
+        flex-direction: column-reverse; /* Save button on top on mobile */
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .btn-save, .btn-cancel {
+        width: 100%;
+    }
+
+    #header-part{
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1%;
+        padding-bottom: 2%;
+        
+    }
+
+    #footer-part{
+        font-size: 14px;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-img{
+        display: flex;
+    }
 }
