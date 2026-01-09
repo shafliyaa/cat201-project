@@ -1,3 +1,5 @@
+package com.example.hijabluxe;
+
 public class User {
     // Attributes
     private String username;

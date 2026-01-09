@@ -3,7 +3,7 @@ const loginBtn = document.getElementById("login-button");
 const profileBtn = document.getElementById("profile-button");
 const cartBtn = document.getElementById("cart-button");
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 if(isLoggedIn){
     signUpBtn.style.display = 'none';

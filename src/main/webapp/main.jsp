@@ -1,3 +1,7 @@
+<%@ page import="com.example.hijabluxe.Cart" %>
+<%@ page import="com.example.hijabluxe.Product" %>
+<%@ page import="com.example.hijabluxe.Product" %>
+<%@ page import="com.example.hijabluxe.User" %>
 <%
     // Login
     String loginEmail = request.getParameter("login_email");
@@ -11,12 +15,23 @@
     // Checkout
     String checkoutEmail = request.getParameter("email");
     String checkoutPhone = request.getParameter("phone");
+    String checkoutPayment = request.getParameter("payment_method");
+
+    if(checkoutEmail != null && checkoutPayment != null) {
+            out.println("Order completed! Email: " + checkoutEmail + ", Payment: " + checkoutPayment);
+        }
+
     String checkoutFullName = request.getParameter("full_name");
     String checkoutAddress = request.getParameter("address_line1");
     String checkoutCity = request.getParameter("city");
     String checkoutState = request.getParameter("State");
     String checkoutPostcode = request.getParameter("postcode");
-    String checkoutPayment = request.getParameter("payment_method");
+
+    // Cart
+    Cart cart = (Cart) session.getAttribute("cart");
+
+    //User
+    User user = (User) session.getAttribute("user");
 %>
 
 <!DOCTYPE html> 
@@ -296,6 +311,33 @@
             </div>
 
             <div id="cart-page" class="page">
+            <%
+                if(cart != null) {
+                    for(Product p : cart.getItems()) {
+            %>
+            <tr>
+                <td><%= p.getName() %></td>
+                <td>RM<%= p.getPrice() %></td>
+                <td>1</td> <!-- or your cart quantity if you implement it -->
+                <td>RM<%= p.getPrice() %></td>
+            </tr>
+            <%
+                    }
+            %>
+            <tr>
+                <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
+                <td>RM<%= cart.getTotalPrice() %></td>
+            </tr>
+            <%
+                } else {
+            %>
+            <tr>
+                <td colspan="4">Your cart is empty</td>
+            </tr>
+            <%
+                }
+            %>
+
                 <h3 id="home-cart">Cart</h3>
                 <div id="cart">
                     <table>
@@ -330,7 +372,7 @@
 
 
         <div id="checkout-page" class="page">
-    <form method="POST" action="index_test.jsp">
+    <form method="POST" action="main.jsp">
         <section id="shipping-details">
             <h2>1. Delivery Details</h2>
             
