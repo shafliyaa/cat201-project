@@ -630,6 +630,51 @@
     </div>
 </div>
 
+<div id="order-history-page" class="page">
+    <div class="history-container">
+        <h1 class="history-title">Order History</h1>
+        <div class="order-card">
+            <div class="order-header">
+                <div>
+                    <p class="label">Order Placed</p>
+                    <p class="value"> </p>
+                </div>
+                <div>
+                    <p class="label">Order ID</p>
+                    <p class="value"> </p>
+                </div>
+                <div>
+                    <p class="label">Status</p>
+                    <p class="value status-delivered"> </p>
+                </div>
+                <div class="total-section">
+                    <p class="label">Total</p>
+                    <p class="value"> </p>
+                </div>
+            </div>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <button id="return-home-btn" onclick="location.href='index.html'">Back to Shopping</button>
+    </div>
+</div>
+
 
 <div id="profile-page" class="page">
     <div class="profile-layout">
@@ -647,8 +692,8 @@
                 <div class="sidebar-group">
                     <h3>My Orders</h3>
                     <ul>
-                        <li><a href="#">My Returns</a></li>
-                        <li><a href="#">My Cancellations</a></li>
+                        <li><a href="#">Orders</a></li>
+                        <li><a href="#">History</a></li>
                     </ul>
                 </div>
 
