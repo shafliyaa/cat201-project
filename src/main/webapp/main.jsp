@@ -343,7 +343,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>model.Product</th>
+                                <th>Product</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Subtotal</th>
