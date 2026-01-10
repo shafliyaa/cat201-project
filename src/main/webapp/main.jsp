@@ -163,12 +163,16 @@
         <title>HijabLuxe - The Art of Elegant Coverage</title>
         <link rel="stylesheet" href="styles.css">
     </head>
+
+
     <body>
         <div id="desktop-view">
+            <!-- banner-->
             <div id="header-part">
                 <p>Summer Sale For All Square Premium Set A - OFF 50%!</p>
                 <a href="#new-arrival">ShopNow</a>
             </div>
+            <!-- header-->
             <div id="nav-bar">
                 <h1 id="ShopName">HijabLuxe</h1>
                 <div id="nav-bar-button">
@@ -182,6 +186,9 @@
                 </div>
             </div>
             <div class="line"></div>
+
+
+            <!-- login page-->
             <div id="login-page" class="page">
                     <img src="image/login-image.png" class="login-image">
                     <div id="login-info"> 
@@ -202,9 +209,10 @@
                                     <%= loginMessage %>
                                 </div>
                             <% } %>
-                       
                     </div>
             </div>
+
+            <!-- Sign Up Page -->
             <div id="sign-up-page" class="page">
                 <img src="image/login-image.png" class="login-image">
                 <div id="sign-up-info">
@@ -233,6 +241,8 @@
                 </div>
             </div>
 
+            <!-- Main Page -->
+
             <div id="main-page" class="page">
                 <div id="main-page-header" >
                     <div id="main-page-button">
@@ -247,6 +257,8 @@
 
                     </div>
                 </div>
+
+                <!-- New Arrival Section -->
                 <div id="new-arrival">
                     <h3 class="title">New Arrival</h3>
                     <div id="new-arrival-content">
@@ -255,7 +267,8 @@
                             <p>Square Pink Kembang</p>
                             <p>$45</p>
                             <img class="star" src="image/Five%20star.png">
-                            <button class="add-to-cart">Add To Cart</button>
+                            <button class="add-to-cart-btn">
+                                <i class="fas fa-cart-plus"></i> Add To Cart</button>
                         </div>
                         <div class="products" data-id="2" data-name="shawl Grey Premium" data-price="80">
                             <img src="image/Grey%20Gintih%20FS.webp" id="grey-gintih" class="pic">
@@ -326,7 +339,7 @@
                         <p>Bawal Printed Aura</p>
                         <p>$109</p>
                         <img class="star" src="image/Five%20star.png">
-                        <button class="add-to-cart">Add To Cart</button>
+                        <button class="add-to-cart">Add To Cart</button>class=
                     </div>
                     <div class="products" data-id="8" data-name="Bawal Printed Pastel" data-price="130">
                         <img src="image/bawal-2.webp" id="bawal-2" class="pic">

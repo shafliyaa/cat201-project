@@ -363,6 +363,29 @@ html {
     width: 100px;
 }
 
+.add-to-cart-btn {
+    width: 100%;
+    padding: 14px;
+    background: #2C3E50;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background: #2C3E50;
+}
+
+
+
 
 #main-bottom {
     display: flex;
@@ -1200,5 +1223,31 @@ th,td{
 
     .footer-img{
         display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image-container {
+        height: 200px;
+    }
+
+    #login-info,
+    #sign-up-info {
+        padding: 30px 20px;
+    }
+
+    .login-title,
+    .signup-title {
+        font-size: 28px;
+    }
+
+    .cart-confirmation {
+        left: 20px;
+        right: 20px;
+        max-width: none;
     }
 }
