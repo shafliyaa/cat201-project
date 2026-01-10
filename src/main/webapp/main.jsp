@@ -693,7 +693,7 @@
                     <h3>My Orders</h3>
                     <ul>
                         <li><a href="#">Orders</a></li>
-                        <li><a href="#">History</a></li>
+                        <li><a href="#">My History</a></li>
                     </ul>
                 </div>
 
