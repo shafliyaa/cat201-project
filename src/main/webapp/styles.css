@@ -332,7 +332,8 @@ html {
 #square-button,
 #shawl-button,
 #innerCap-button{
-    background-color: #F3EBF0;
+    display: flex;
+    background-color: #FEE0E4;
     border: none;
     font-size: 16px;
     font-weight: 500;
@@ -341,6 +342,8 @@ html {
     padding: 10px 20px;
     transition: all 0.3s ease;
     position: relative;
+    margin-left: 20px;
+    gap: 12px;
 }
 
 #square-button:hover,
@@ -1305,5 +1308,9 @@ th,td{
         left: 20px;
         right: 20px;
         max-width: none;
+    }
+
+    #cart-total-section{
+        border: none;
     }
 }
