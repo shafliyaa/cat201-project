@@ -11,6 +11,7 @@ const signUpPage = document.getElementById("sign-up-page");
 const cartPage = document.getElementById("cart-page");
 const checkOutPage = document.getElementById("checkout-page");
 const profilePage = document.getElementById("profile-page");
+const editProfilePage = document.getElementById("edit-profile-page");
 
 const squarePage = document.getElementById("square-page");
 const shawlPage = document.getElementById("shawl-page");
@@ -82,6 +83,7 @@ function showProfilePage() {
         console.error("Profile Page HTML element is missing!");
     }
 }
+
 
 // 1. Get the elements
 const historyLink = document.getElementById("sidebar-history-link");
@@ -188,6 +190,21 @@ if(forgetPasswordBtn) {
     forgetPasswordBtn.addEventListener("click", (event) =>{
         event.preventDefault();
         alert("Forget password page not implemented for this assignment.");
+    });
+}
+const editProfileForm = document.getElementById("edit-profile-form");
+if(editProfileForm) {
+    editProfileForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const newUsername = document.getElementById("user-name").value;
+        
+        if(newUsername.trim() !== "") {
+            document.getElementById("display-username").innerText = newUsername;
+            alert("Profile updated successfully!");
+            showProfilePage();
+        } else {
+            alert("Username cannot be empty");
+        }
     });
 }
 
