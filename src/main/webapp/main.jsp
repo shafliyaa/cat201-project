@@ -1,5 +1,6 @@
 <%@ page import="com.example.hijabluxe.Cart" %>
 <%@ page import="com.example.hijabluxe.Product" %>
+<%@ page import="com.example.hijabluxe.ProductService" %>
 <%@ page import="com.example.hijabluxe.User" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
@@ -7,6 +8,12 @@
 <%@ page import="java.util.ArrayList" %>
 
 <%
+    // --- FETCH PRODUCTS (Make sure this is OUTSIDE any if-blocks) ---
+    List<Product> allProducts = ProductService.getInstance().getAllProducts();
+    List<Product> displayList = new ArrayList<>(allProducts);
+    java.util.Collections.reverse(displayList);
+    int max = Math.min(displayList.size(), 3); // Define 'max' here!
+
     // --- 0. HANDLE LOGOUT (Must be first!) ---
     String action = request.getParameter("action");
     if("logout".equals(action)) {
@@ -166,29 +173,32 @@
                 <!-- New Arrival Section -->
                 <div id="new-arrival">
                     <h2 style="color: #2C3E50; text-align: center; font-size: 28px;">New Arrival</h2>
-                    <div id="new-arrival-content">
-                        <div class="products" data-id="1" data-name="square Pink Kembang" data-price="45">
-                            <img src="image/Pink%20Kembang%20BACK.webp" id="pink-kembang" class="pic">
-                            <p>Square Pink Kembang</p>
-                            <p>$45</p>
-                            <img class="star" src="image/Five%20star.png">
-                            <button class="add-to-cart">Add To Cart</button>
+                    <!-- New Arrival Section -->
+                    <div id="new-arrival">
+                        <h2 style="color: #2C3E50; text-align: center; font-size: 28px;">New Arrival</h2>
+                        <div id="new-arrival-content">
+                            <%
+                                // The logic: Start at 0, go until max, increase by 1
+                                for (int i = 0; i < max; i++) {
+                                    Product p = displayList.get(i);
+                                    String imgPath = (p.getImage() == null || p.getImage().isEmpty())
+                                            ? "image/default-product.webp"
+                                            : p.getImage();
+                            %>
+                            <div class="products"
+                                 data-id="<%= p.getId() %>"
+                                 data-name="<%= p.getName() %>"
+                                 data-price="<%= p.getPrice() %>">
+
+                                <img src="<%= imgPath %>" class="pic">
+                                <p><%= p.getName() %></p>
+                                <p>$<%= String.format("%.2f", p.getPrice()) %></p>
+                                <img class="star" src="image/Five%20star.png">
+                                <button class="add-to-cart">Add To Cart</button>
+                            </div>
+                            <% } %>
                         </div>
-                        <div class="products" data-id="2" data-name="shawl Grey Premium" data-price="80">
-                            <img src="image/Grey%20Gintih%20FS.webp" id="grey-gintih" class="pic">
-                            <p>Shawl Grey Premium</p>
-                            <p>$80</p>
-                            <img class="star" src="image/Five%20star.png">
-                            <button class="add-to-cart">Add To Cart</button>
-                        </div>
-                        <div class="products" data-id="3" data-name="shawl Black Mekkah" data-price="80">
-                            <img src="image/Black%20Jelaga%20FS.webp" id="shawl-black-mekkah" class="pic">
-                            <p>Shawl Black Mekkah</p>
-                            <p>$80</p>
-                            <img class="star" src="image/Four%20Half%20Star.png">
-                            <button class="add-to-cart">Add To Cart</button>
-                        </div>
-                    </div>   
+                    </div>
                 </div>
                 <div id="popular-now">
                     <h3 class="title">Popular Now</h3>
