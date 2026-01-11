@@ -90,8 +90,8 @@
                     <a href="main.jsp?action=logout" id ="logout-button" style="text-decoration: none; color: rgb(171, 31, 31); padding: 8px 16px">Log Out</a>
                 </div>
             </div>
+            
             <div class="line"></div>
-
 
             <!-- login page-->
             <div id="login-page" class="page">
@@ -102,7 +102,7 @@
                             <form id="login-form" method="post" action="main.jsp">
                                 <input type="email" id="login-email" name="login_email" placeholder="Email" required>
                                 <input type="password" id="login-password" name="login_password" placeholder="Password" required>
-                                <input type="submit" value="Log In"> 
+                                <input type="submit" value="Log In" id="login-page-button"> 
                                 <button id="forget-password-login">Forget Password?</button>
                             </form>
 
@@ -170,34 +170,31 @@
                     </div>
                 </div>
 
+            
                 <!-- New Arrival Section -->
                 <div id="new-arrival">
                     <h2 style="color: #2C3E50; text-align: center; font-size: 28px;">New Arrival</h2>
-                    <!-- New Arrival Section -->
-                    <div id="new-arrival">
-                        <h2 style="color: #2C3E50; text-align: center; font-size: 28px;">New Arrival</h2>
-                        <div id="new-arrival-content">
-                            <%
-                                // The logic: Start at 0, go until max, increase by 1
-                                for (int i = 0; i < max; i++) {
-                                    Product p = displayList.get(i);
-                                    String imgPath = (p.getImage() == null || p.getImage().isEmpty())
-                                            ? "image/default-product.webp"
-                                            : p.getImage();
-                            %>
-                            <div class="products"
-                                 data-id="<%= p.getId() %>"
-                                 data-name="<%= p.getName() %>"
-                                 data-price="<%= p.getPrice() %>">
+                    <div id="new-arrival-content">
+                        <%
+                            // The logic: Start at 0, go until max, increase by 1
+                            for (int i = 0; i < max; i++) {
+                                Product p = displayList.get(i);
+                                String imgPath = (p.getImage() == null || p.getImage().isEmpty())
+                                        ? "image/default-product.webp"
+                                        : p.getImage();
+                        %>
+                        <div class="products"
+                                data-id="<%= p.getId() %>"
+                                data-name="<%= p.getName() %>"
+                                data-price="<%= p.getPrice() %>">
 
-                                <img src="<%= imgPath %>" class="pic">
-                                <p><%= p.getName() %></p>
-                                <p>$<%= String.format("%.2f", p.getPrice()) %></p>
-                                <img class="star" src="image/Five%20star.png">
-                                <button class="add-to-cart">Add To Cart</button>
-                            </div>
-                            <% } %>
+                            <img src="<%= imgPath %>" class="pic">
+                            <p><%= p.getName() %></p>
+                            <p>$<%= String.format("%.2f", p.getPrice()) %></p>
+                            <img class="star" src="image/Five%20star.png">
+                            <button class="add-to-cart">Add To Cart</button>
                         </div>
+                        <% } %>
                     </div>
                 </div>
                 <div id="popular-now">
@@ -363,52 +360,51 @@
 
     <div id="cart-page" class="page">
         <h3 id="home-cart">Cart</h3>
-        
         <div id="cart">
-    <table>
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th>Action</th> </tr>
-        </thead>
-        <tbody id="cart-items">
-            <%
-                Cart pageCart = (Cart) session.getAttribute("cart");
-                
-                if(pageCart != null && pageCart.getItems() != null && !pageCart.getItems().isEmpty()) {
-                    for(Product p : pageCart.getItems()) {
-            %>
-            <tr>
-                <td><%= p.getName() %></td>
-                <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
-                <td>1</td>
-                <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
-                
-                <td>
-                    <a href="cart-action?action=remove&id=<%= p.getId() %>" 
-                    style="color: white; background-color: #DB4444; padding: 5px 10px; border-radius: 5px;">
-                    Remove
-                    </a>
-                </td>
-            </tr>
-            <%
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th> </tr>
+            </thead>
+            <tbody id="cart-items">
+                <%
+                    Cart pageCart = (Cart) session.getAttribute("cart");
+                    
+                    if(pageCart != null && pageCart.getItems() != null && !pageCart.getItems().isEmpty()) {
+                        for(Product p : pageCart.getItems()) {
+                %>
+                <tr>
+                    <td><%= p.getName() %></td>
+                    <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
+                    <td>1</td>
+                    <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
+                    
+                    <td>
+                        <a href="cart-action?action=remove&id=<%= p.getId() %>" 
+                        style=" text-decoration: none; color: white; background-color: #DB4444; padding: 5px 10px; border-radius: 5px;">
+                        Remove
+                        </a>
+                    </td>
+                </tr>
+                <%
+                        }
+                    } else {
+                %>
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 20px; color: #666;">
+                        Your cart is currently empty.
+                    </td>
+                </tr>
+                <%
                     }
-                } else {
-            %>
-            <tr>
-                <td colspan="5" style="text-align: center; padding: 20px; color: #666;">
-                    Your cart is currently empty.
-                </td>
-            </tr>
-            <%
-                }
-            %>
-        </tbody>
-    </table>
-</div>
+                %>
+            </tbody>
+        </table>
+    </div>
 
     <div id="return-button">
         <button id="return-shop">Return To Shop</button>
@@ -416,7 +412,7 @@
 
     <%-- 4. CART TOTAL SECTION --%>
     <div id="cart-bottom">
-        <div id="cart-total">
+        <div id="cart-total-section">
             <h3>Cart Total</h3>
             
             <%
@@ -444,7 +440,7 @@
 </div>
 
 
-        <div id="checkout-page" class="page">
+<div id="checkout-page" class="page">
     <form method="POST" action="orders">
         <section id="shipping-details">
             <h2>1. Delivery Details</h2>
@@ -562,6 +558,7 @@
         </section>
     </div>
 </div>
+
 <div id="order-history-page" class="page">
     <div class="history-container">
         <h1 class="history-title">Order History</h1>
@@ -595,10 +592,6 @@
                 <div>
                     <p class="label">Status</p>
                     <p class="value status-delivered" style="color: #f39c12;">Processing</p>
-                </div>
-                <div class="total-section">
-                    <p class="label">Total</p>
-                    <p class="value"><%= hTotal %></p>
                 </div>
             </div>
 

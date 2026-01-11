@@ -92,34 +92,20 @@ html {
     background: none;
     border: none;
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
     padding: 8px 20px;
     cursor: pointer;
     text-decoration: none;
     transition: 0.3s;
 }
 
-#home-button,
-#contact-button,
-#signup-button,
-#login-button,
-#profile-button,
-#cart-button,
-#logout-button{
-    background-color: #F3EBF0;
-    color: #8F4E68;
-    border-radius: 12px;
-    font-weight: 600;
-}
-
 
 #logout-button{
-  text-decoration: none;
+    text-decoration: none;
     color: #5F002A;
-  padding: 5px 16px;
-  background: none;
-  border: none;
-
+    padding: 5px 16px;
+    background: none;
+    border: none;
 }
 
 #signup-button{
@@ -188,6 +174,7 @@ html {
 #sign-up-password,
 #forget-email-phone,
 #verification-code{
+    background-color: #FEE0E4;
     border: none;
     border-bottom: 2px solid #ccc;
     outline: none;
@@ -206,7 +193,9 @@ html {
 
 #login-hover{
     border: none;
-    background-color: white;
+    background-color: #FEE0E4;
+    color: #5F002A;
+    cursor: pointer;
 }
 
 
@@ -227,10 +216,18 @@ html {
     gap: 20px;
 }
 
+#login-page-button{
+    padding: 5px 10px;
+    border: none;
+    background-color: #af0652;
+    color: white;
+    cursor: pointer;
+}
+
 
 #forget-password-login{
     border: none;
-    background-color: white;
+    background-color: #FEE0E4;
 }
 
 
@@ -270,6 +267,11 @@ html {
     align-items: center;
 }
 
+#create-account-button{
+    border: none;
+    background-color: #af0652;
+    color: white;
+}
 
 #create-account-button,
 #google-button {
@@ -322,7 +324,7 @@ html {
     margin: 20px 0 40px 0;
     padding: 0;
     width: 100%;
-    border-bottom: 1px solid #f0f0f0; /* Subtle line under menu */
+    border-bottom: 1px solid #878787; /* Subtle line under menu */
     padding-bottom: 20px;
 }
 
@@ -330,30 +332,21 @@ html {
 #square-button,
 #shawl-button,
 #innerCap-button{
-    background: none;
+    background-color: #F3EBF0;
     border: none;
     font-size: 16px;
     font-weight: 500;
-    color: #555;
+    color: #8F4E68;
     cursor: pointer;
     padding: 10px 20px;
     transition: all 0.3s ease;
     position: relative;
 }
 
-#square-button,
-#shawl-button,
-#innerCap-button{
-    background-color: #F3EBF0;
-    color: #8F4E68;
-    border-radius: 12px;
-    font-weight: 600;
-}
-
 #square-button:hover,
 #shawl-button:hover,
 #innerCap-button:hover{
-    color: #8F4E68;
+    opacity: 0.8;
 }
 
 
@@ -434,20 +427,19 @@ html {
 
 /* --- Keep class name for JS, Update Style --- */
 .add-to-cart {
-    width: 100%;
-    padding: 12px;
     background-color: #F3EBF0;
     color: #8F4E68;
     border-radius: 12px;
-    font-weight: 600;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
     transition: background 0.3s;
+    margin-top: 10px;
+    height: 30px;
+    width: 100px;
 }
 
 .add-to-cart:hover {
-    opacity: 0.9;
+    opacity: 0.7;
 }
 
 
@@ -491,7 +483,7 @@ html {
 }
 
 
-#cart-total {
+#cart-total-section {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
@@ -559,13 +551,6 @@ th,td{
     margin: 0 auto;
     gap: 30px;
 }
-
-
-.add-to-cart{
-    height: 30px;
-    width: 100px;
-}
-
 
 .middle-title{
     display: flex;
@@ -684,7 +669,6 @@ th,td{
 }
 
 #order-history-page {
-    display: block ;
     flex-direction: column;
     align-items: center;
     padding: 50px 5%;
