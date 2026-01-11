@@ -84,6 +84,7 @@ This repository contains the complete source code for the HijabLuxe application,
 - Java
 - JSP (JavaServer Pages)
 - HTML, CSS
+- Javascript
 - Java Servlets
 - Session Management
 
