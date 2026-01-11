@@ -638,14 +638,40 @@
                 <div class="sidebar-group">
                     <h3>Manage My Account</h3>
                     <ul>
-                        <li><a href="#profile-page" class="active-link">My Profile</a></li>
+                        <li><a href="#" class="active-link">My Profile</a></li>
                     </ul>
                 </div>
-
                 <div class="sidebar-group">
                     <h3>My Orders</h3>
                     <ul>
-                        <li><a id="sidebar-history-link">My History</a></li>
+                        <li><a href="#" onclick="showPage('order-history-page')">My History</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="profile-content">
+            <div class="profile-form-card">
+                <h2 class="form-title">My Profile</h2>
+                <div class="profile-view-details">
+                    <p><strong>Username:</strong> <span id="display-username">User123</span></p>
+                    <p><strong>Email:</strong> <span id="display-email">user@example.com</span></p>
+                    <p><strong>Address:</strong> <span id="display-address">123 Street, City</span></p>
+                    <button class="btn-save" onclick="showPage('edit-profile-page')">Edit Profile</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div id="edit-profile-page" class="page">
+    <div class="profile-layout">
+        <aside class="profile-sidebar">
+            <nav>
+                <div class="sidebar-group">
+                    <h3>Manage My Account</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('profile-page')">Back to Profile</a></li>
                     </ul>
                 </div>
             </nav>
@@ -654,34 +680,15 @@
         <main class="profile-content">
             <div class="profile-form-card">
                 <h2 class="form-title">Edit Your Profile</h2>
-                
                 <form id="edit-profile-form">
                     <div class="form-row">
                         <div class="input-group">
                             <label for="user-name">Username</label>
-                            <input type="text" id="user-name" >
+                            <input type="text" id="user-name">
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="input-group">
-                            <label for="profile-email">Email</label>
-                            <input type="email" id="profile-email" >
-                        </div>
-                        <div class="input-group">
-                            <label for="profile-address">Address</label>
-                            <input type="text" id="profile-address" >
-                        </div>
-                    </div>
-
-                    <div class="password-changes">
-                        <label>Password Changes</label>
-                        <input type="password" placeholder="Current Password">
-                        <input type="password" placeholder="New Password">
-                        <input type="password" placeholder="Confirm New Password">
-                    </div>
-
                     <div class="form-actions">
-                        <button type="button" class="btn-cancel">Cancel</button>
+                        <button type="button" class="btn-cancel" onclick="showPage('profile-page')">Cancel</button>
                         <button type="submit" class="btn-save">Save Changes</button>
                     </div>
                 </form>
