@@ -637,14 +637,9 @@
                 <form id="edit-profile-form">
                     <div class="form-row">
                         <div class="input-group">
-                            <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" >
+                            <label for="user-name">Username</label>
+                            <input type="text" id="user-name" >
                         </div>
-                        <div class="input-group">
-                            <label for="last-name">Last Name</label>
-                            <input type="text" id="last-name" >
-                        </div>
-                    </div>
 
                     <div class="form-row">
                         <div class="input-group">
