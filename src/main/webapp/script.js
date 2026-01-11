@@ -270,3 +270,29 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('home-button').addEventListener('click', () => showPage('main-page'));
     document.getElementById('cart-button').addEventListener('click', () => showPage('cart-page'));
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // hide all pages except main-page
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none');
+    document.getElementById('main-page').style.display = 'block';
+
+    // function to switch pages
+    function showPage(pageId) {
+        pages.forEach(p => p.style.display = 'none');
+        document.getElementById(pageId).style.display = 'block';
+    }
+
+    // attach footer links
+    document.querySelectorAll('.footer-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            showPage(target);
+        });
+    });
+
+    // attach nav buttons (optional)
+    document.getElementById('home-button').addEventListener('click', () => showPage('main-page'));
+    document.getElementById('cart-button').addEventListener('click', () => showPage('cart-page'));
+});
