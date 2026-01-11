@@ -90,7 +90,7 @@
                     <a href="main.jsp?action=logout" id ="logout-button" style="text-decoration: none; color: rgb(171, 31, 31); padding: 8px 16px">Log Out</a>
                 </div>
             </div>
-            
+
             <div class="line"></div>
 
             <!-- login page-->
@@ -159,9 +159,9 @@
                 <div id="main-page-header" >
                     <div id="main-page-button">
                         
-                        <button id="square-button"><span>Square</span><img src="image/Vector.png"></button>
-                        <button id="shawl-button"><span>Shawl</span><img src="image/Vector.png"></button>
-                        <button id="innerCap-button"><span>Inner Cap</span><img src="image/Vector.png"></button>
+                        <button id="square-button"><span>Square</span></button>
+                        <button id="shawl-button"><span>Shawl</span></button>
+                        <button id="innerCap-button"><span>Inner Cap</span></button>
                     </div>
 
                     <div>
@@ -499,64 +499,64 @@
             </fieldset>
         </section>
         
+            <div class="summary-section">
+                <section id="order-summary">
+                    <h2>Your Order</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item (Qty)</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+            
+                <tbody>
+                    <% 
+                        // 1. Get the Cart from the Session
+                        Cart checkoutCart = (Cart) session.getAttribute("cart");
+                        double checkoutTotal = 0.00;
+
+                        // 2. Check if the cart exists
+                        if(checkoutCart != null && checkoutCart.getItems() != null && !checkoutCart.getItems().isEmpty()) {
+                            
+                            // 3. Calculate the total for the footer
+                            checkoutTotal = checkoutCart.getTotalPrice();
+
+                            // 4. Loop through every product to make a Row <tr>
+                            for(Product p : checkoutCart.getItems()) {
+                    %>
+                        <tr>
+                            <td><%= p.getName() %> <span style="color: #888; font-size: 0.9em;">(x1)</span></td>
+                            <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
+                        </tr>
+                    <% 
+                            } 
+                        } else { 
+                    %>
+                        <tr>
+                            <td colspan="2" style="text-align: center; color: red;">No items in cart.</td>
+                        </tr>
+                    <% 
+                        } 
+                    %>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td>Subtotal:</td>
+                        <td>RM <%= String.format("%.2f", checkoutTotal) %></td>
+                    </tr>
+                    <tr style="font-weight: bold; color: #4B0082;">
+                        <td>Grand Total:</td>
+                        <td>RM <%= String.format("%.2f", checkoutTotal) %></td>
+                    </tr>
+                </tfoot>
+            </table>
+                </section>
+            </div>
         <button type="submit" id="place-order-btn">Complete Purchase</button>
     </form>
 
-    <div class="summary-section">
-        <section id="order-summary">
-            <h2>Your Order</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Item (Qty)</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-    
-        <tbody>
-            <% 
-                // 1. Get the Cart from the Session
-                Cart checkoutCart = (Cart) session.getAttribute("cart");
-                double checkoutTotal = 0.00;
-
-                // 2. Check if the cart exists
-                if(checkoutCart != null && checkoutCart.getItems() != null && !checkoutCart.getItems().isEmpty()) {
-                    
-                    // 3. Calculate the total for the footer
-                    checkoutTotal = checkoutCart.getTotalPrice();
-
-                    // 4. Loop through every product to make a Row <tr>
-                    for(Product p : checkoutCart.getItems()) {
-            %>
-                <tr>
-                    <td><%= p.getName() %> <span style="color: #888; font-size: 0.9em;">(x1)</span></td>
-                    <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
-                </tr>
-            <% 
-                    } 
-                } else { 
-            %>
-                <tr>
-                    <td colspan="2" style="text-align: center; color: red;">No items in cart.</td>
-                </tr>
-            <% 
-                } 
-            %>
-        </tbody>
-
-        <tfoot>
-            <tr>
-                <td>Subtotal:</td>
-                <td>RM <%= String.format("%.2f", checkoutTotal) %></td>
-            </tr>
-            <tr style="font-weight: bold; color: #4B0082;">
-                <td>Grand Total:</td>
-                <td>RM <%= String.format("%.2f", checkoutTotal) %></td>
-            </tr>
-        </tfoot>
-    </table>
-        </section>
-    </div>
 </div>
 
 <div id="order-history-page" class="page">
