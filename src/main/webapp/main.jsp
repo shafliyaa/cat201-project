@@ -657,7 +657,7 @@
                     <p><strong>Username:</strong> <span id="display-username"> </span></p>
                     <p><strong>Email:</strong> <span id="display-email"> </span></p>
                     <p><strong>Address:</strong> <span id="display-address"> </span></p>
-                    <button class="btn-save" onclick="showPage('edit-profile-page')">Edit Profile</button>
+                    <button class="editbtn" onclick="showPage('edit-profile-page')">Edit Profile</button>
                 </div>
             </div>
         </main>
