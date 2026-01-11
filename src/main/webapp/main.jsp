@@ -52,109 +52,7 @@
             loginMessage = "Error: Wrong email or password (or user not found).";
         }
     }
-
-    // --- 4. CHECKOUT LOGIC (Save Order to Global Admin List) ---
-    String checkoutEmail = request.getParameter("email");
-    String checkoutPayment = request.getParameter("payment_method");
-    String checkoutFullName = request.getParameter("full_name");
-    String checkoutAddress = request.getParameter("address_line1");
-    String checkoutCity = request.getParameter("city");
-    String checkoutPhone = request.getParameter("phone");
-    String checkoutState = request.getParameter("State");
-    String checkoutPostcode = request.getParameter("postcode");
-
-    // Calculate Total
-    Cart sessionCart = (Cart) session.getAttribute("cart");
-    String totalAmount = "0.00";
-    if(sessionCart != null) {
-        totalAmount = String.format("%.2f", sessionCart.getTotalPrice());
-    }
-
-    if(checkoutEmail != null && checkoutPayment != null) {
-        List<String[]> orderDB = (List<String[]>) application.getAttribute("orderDB");
-        if(orderDB == null) {
-            orderDB = new ArrayList<>();
-            application.setAttribute("orderDB", orderDB);
-        }
-
-        String[] newOrder = { 
-            checkoutFullName, 
-            checkoutEmail, 
-            checkoutAddress, 
-            checkoutCity, 
-            checkoutPayment, 
-            "RM " + totalAmount 
-        };
-        
-        orderDB.add(newOrder);
-        session.removeAttribute("cart"); 
 %>
-        <%-- JUMP OUT TO JAVASCRIPT --%>
-        <script>
-            alert("✅ Order Placed Successfully! Your items will be shipped to <%= checkoutCity %>.");
-            window.location.href = "main.jsp"; 
-        </script>
-<%
-    // JUMP BACK INTO JAVA
-    }
-
-    // --- 0.5 HANDLE ADD TO CART ---
-    if("add".equals(action)) {
-        String pId = request.getParameter("id");
-        String pName = request.getParameter("name");
-        String pPrice = request.getParameter("price");
-        
-        // 1. Get or Create Cart
-        Cart myCart = (Cart) session.getAttribute("cart");
-        if(myCart == null) {
-            myCart = new Cart(); // This works if you added the empty constructor to Cart.java
-            session.setAttribute("cart", myCart);
-        }
-        
-        // 2. Add item (Using ONLY 3 Arguments)
-        if(pId != null && pName != null && pPrice != null) {
-            double priceVal = Double.parseDouble(pPrice);
-            
-            // ✅ THIS LINE MUST MATCH YOUR Product.java CONSTRUCTOR
-            Product p = new Product(Integer.parseInt(pId), pName, priceVal); 
-            
-            myCart.addItem(p);
-        }
-        
-        %>
-        <script>
-            alert("✅ Added <%= pName %> to cart!");
-            window.location.href = "main.jsp"; 
-        </script>
-        <%
-        return; 
-    }
-
-    /// --- 0.6 HANDLE REMOVE FROM CART ---
-    if("remove".equals(action)) {
-        String idToRemove = request.getParameter("id");
-        
-        Cart myCart = (Cart) session.getAttribute("cart");
-        if(myCart != null && idToRemove != null) {
-            int id = Integer.parseInt(idToRemove);
-            
-            // Loop through and find the item to remove
-            java.util.Iterator<Product> iter = myCart.getItems().iterator();
-            while (iter.hasNext()) {
-                Product p = iter.next();
-                if (p.getId() == id) {
-                    iter.remove();
-                    break; 
-                }
-            }
-        }
-        
-        // ✅ CORRECT WAY: Just redirect back to the cart view
-        response.sendRedirect("main.jsp?view=cart");
-        return;
-    }
-%>
-
 <!DOCTYPE html> 
 <html>
     <head>
@@ -480,9 +378,9 @@
                 <td>RM <%= String.format("%.2f", p.getPrice()) %></td>
                 
                 <td>
-                    <a href="main.jsp?action=remove&id=<%= p.getId() %>" 
-                       style="color: white; background-color: #DB4444; padding: 5px 10px; text-decoration: none; border-radius: 5px; font-size: 12px;">
-                       Remove
+                    <a href="cart-action?action=remove&id=<%= p.getId() %>" 
+                    style="color: white; background-color: #DB4444; padding: 5px 10px; border-radius: 5px;">
+                    Remove
                     </a>
                 </td>
             </tr>

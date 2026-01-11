@@ -132,19 +132,17 @@ function showLogInPage(){
 }
 
 
-// --- ADD TO CART LOGIC (THE FIX) ---
-// Instead of using localStorage, we send the data to Java!
+// --- NEW ADD TO CART LOGIC (Sends to CartServlet) ---
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function () {
         const product = this.closest('.products');
         
-        // Get data from HTML
         const id = product.dataset.id;
         const name = product.dataset.name;
         const price = product.dataset.price;
 
-        // Redirect to main.jsp with query parameters (Let Java handle it)
-        window.location.href = `main.jsp?action=add&id=${id}&name=${encodeURIComponent(name)}&price=${price}`;
+        // CHANGED THIS LINE: Points to "cart-action" (The Servlet)
+        window.location.href = `cart-action?action=add&id=${id}&name=${encodeURIComponent(name)}&price=${price}`;
     });
 });
 
@@ -217,21 +215,25 @@ function showProfilePage() {
     profilePage.style.display = "flex";
 }
 
-//still cannot load waiting user
-function processCheckout(totalAmount) {
-    const params = new URLSearchParams({
-        action: 'create',
-        customer: 'Customer Name', // Get this from session/form
-        amount: totalAmount
-    });
-
-    fetch("orders", { method: "POST", body: params })
-        .then(() => alert("Checkout successful! Order is processing."));
-}
-
 // --- AUTO-OPEN CART ON RELOAD ---
 // This checks if the URL has "?view=cart"
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('view') === 'cart') {
+    showCartPage();
+}
+
+// --- HANDLE SUCCESS ALERTS ---
+const params = new URLSearchParams(window.location.search);
+
+// 1. If we just added an item, show alert and stay on home/shop
+if (params.get('status') === 'added') {
+    alert("✅ Item successfully added to your cart!");
+    
+    // Clean the URL so the alert doesn't show again if you refresh
+    window.history.replaceState(null, null, window.location.pathname);
+}
+
+// 2. If we are viewing the cart (e.g., after removing an item)
+if (params.get('view') === 'cart') {
     showCartPage();
 }
