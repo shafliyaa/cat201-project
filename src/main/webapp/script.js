@@ -1,3 +1,4 @@
+const editbtn = document.querySelector('.btn-save');
 // --- 1. GET ALL ELEMENTS FIRST (Organized) ---
 const signUpBtn = document.getElementById("signup-button");
 const loginBtn = document.getElementById("login-button");
@@ -285,3 +286,21 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('home-button').addEventListener('click', () => showPage('main-page'));
     document.getElementById('cart-button').addEventListener('click', () => showPage('cart-page'));
     });
+
+// --- FINAL FOOTER FIX ---
+document.querySelectorAll('.footer-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // This stops the "jump to header" behavior
+
+        const target = this.getAttribute('data-target');
+
+        // Map the data-target names to your existing functions
+        if (target === 'profile-page') showProfilePage();
+        else if (target === 'login-page') showLogInPage();
+        else if (target === 'cart-page') showCartPage();
+        else if (target === 'main-page') showHomePage();
+
+        // Ensure the screen doesn't stay at the bottom
+        window.scrollTo(0, 0);
+    });
+});
