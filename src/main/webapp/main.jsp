@@ -562,52 +562,81 @@
         </section>
     </div>
 </div>
-
 <div id="order-history-page" class="page">
     <div class="history-container">
         <h1 class="history-title">Order History</h1>
+
+        <%
+            // 1. Get the list of orders from the server
+            List<String[]> myHistoryList = (List<String[]>) application.getAttribute("orderDB");
+
+            // 2. Check if there are any orders
+            if (myHistoryList != null && !myHistoryList.isEmpty()) {
+                
+                // 3. Loop through them (Backwards so newest is first)
+                for (int i = myHistoryList.size() - 1; i >= 0; i--) {
+                    String[] order = myHistoryList.get(i);
+                    
+                    // Extract data (Matches your OrderServlet format)
+                    String hName = order[0];
+                    String hEmail = order[1];
+                    // order[2] is address
+                    // order[3] is state
+                    // order[4] is payment
+                    String hTotal = order[5];
+        %>
+
         <div class="order-card">
             <div class="order-header">
                 <div>
-                    <p class="label">Order Placed</p>
-                    <p class="value"> </p>
-                </div>
-                <div>
                     <p class="label">Order ID</p>
-                    <p class="value"> </p>
+                    <p class="value">#ORD-<%= 1000 + i %></p>
                 </div>
                 <div>
                     <p class="label">Status</p>
-                    <p class="value status-delivered"> </p>
+                    <p class="value status-delivered" style="color: #f39c12;">Processing</p>
                 </div>
                 <div class="total-section">
                     <p class="label">Total</p>
-                    <p class="value"> </p>
+                    <p class="value"><%= hTotal %></p>
                 </div>
             </div>
+
             <table class="history-table">
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Qty</th>
-                        <th>Price</th>
+                        <th>Customer Info</th>
+                        <th>Payment Method</th>
+                        <th>Grand Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
+                        <td>
+                            <strong><%= hName %></strong><br>
+                            <span style="font-size: 12px; color: #777;"><%= hEmail %></span>
+                        </td>
+                        <td><%= order[4].toUpperCase() %></td>
+                        <td><%= hTotal %></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <% 
+                } // End Loop
+            } else { 
+        %>
+        
+        <div style="text-align: center; padding: 40px; color: #666;">
+            <h3>No orders found yet.</h3>
+            <p>Go buy something!</p>
+        </div>
 
+        <% } %>
 
-        <button id="return-home-btn" onclick="location.href='index.html'">Back to Shopping</button>
+        <button id="return-home-btn" onclick="location.href='main.jsp'">Back to Shopping</button>
     </div>
 </div>
-
 
 <div id="profile-page" class="page">
     <div class="profile-layout">
@@ -623,7 +652,6 @@
                 <div class="sidebar-group">
                     <h3>My Orders</h3>
                     <ul>
-                        <li><a href="#">Orders</a></li>
                         <li><a id="sidebar-history-link">My History</a></li>
                     </ul>
                 </div>
