@@ -45,13 +45,5 @@ public class ProductService {
         productList.add(p);
     }
 
-    public Product getProductById(int id) {
-        for (Product p : productList) { // assuming 'products' is your list of all products
-            if (p.getId() == id) {
-                return p;
-            }
-        }
-        return null; // return null if product not found
-    }
 
 }
