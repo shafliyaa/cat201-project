@@ -52,8 +52,9 @@
 
         if(foundUser != null && foundUser[1].equals(loginPassword)) {
             String storedName = foundUser[0];
+            User loggedInUser = new User(storedName, loginEmail, foundUser[1], "", "");
+            session.setAttribute("currentUser", loggedInUser);
             session.setAttribute("isLoggedIn", "true");
-            session.setAttribute("currentUserName", storedName);
             loginMessage = "Login Successful! Welcome back, " + storedName;
         } else {
             loginMessage = "Error: Wrong email or password (or user not found).";
@@ -654,9 +655,12 @@
             <div class="profile-form-card">
                 <h2 class="form-title">My Profile</h2>
                 <div class="profile-view-details">
-                    <p><strong>Username:</strong> <span id="display-username"> </span></p>
-                    <p><strong>Email:</strong> <span id="display-email"> </span></p>
-                    <p><strong>Address:</strong> <span id="display-address"> </span></p>
+                    <%
+                        User currentUser = (User) session.getAttribute("currentUser");
+                    %>
+                    <p>Name: <%= (currentUser != null ? currentUser.getUsername() : "Guest") %></p>
+                    <p>Email: <%= (currentUser != null ? currentUser.getEmail() : "-") %></p>
+                    <p>Address: <%= (currentUser != null ? currentUser.getAddress() : "-") %></p>
                     <button class="btn-save" onclick="showPage('edit-profile-page')">Edit Profile</button>
                 </div>
             </div>
