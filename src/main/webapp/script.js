@@ -249,52 +249,57 @@ if (params.get('view') === 'cart') {
     showCartPage();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // hide all pages except main-page
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none');
-    document.getElementById('main-page').style.display = 'block';
+// 4. SIGN UP SUCCESS -> AUTO OPEN LOGIN + PRE-FILL EMAIL
+if (params.get('status') === 'registered') {
+    alert("✅ Account created successfully! Please Login.");
+    
+    // Auto-switch to Login Page
+    showLogInPage();
+    
+    // CHECK: Is there an email in the URL?
+    const registeredEmail = params.get('email');
+    if (registeredEmail) {
+        // Find the login box and fill it
+        const emailInput = document.getElementById("login-email");
+        if (emailInput) {
+            emailInput.value = registeredEmail;
+        }
+    }
+    
+    // Clean the URL (remove status AND email so it looks clean)
+    window.history.replaceState(null, null, window.location.pathname);
+}
 
-    // function to switch pages
-    function showPage(pageId) {
-        pages.forEach(p => p.style.display = 'none');
-        document.getElementById(pageId).style.display = 'block';
+// --- FINAL FOOTER & NAVIGATION FIX ---
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Default: Show main page if no specific view is requested
+    if (!params.has('view') && !params.has('status')) {
+        hideAllPages();
+        document.getElementById('main-page').style.display = 'block';
     }
 
-    // attach footer links
+    // Attach Footer Links (Cleaned Up Version)
     document.querySelectorAll('.footer-link').forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Stop jump to top
+            
             const target = this.getAttribute('data-target');
-            showPage(target);
+
+            // Map data-target to your existing functions
+            if (target === 'profile-page') showProfilePage();
+            else if (target === 'login-page') showLogInPage();
+            else if (target === 'cart-page') showCartPage();
+            else if (target === 'main-page') showHomePage();
+            
+            // Scroll to top smoothly
+            window.scrollTo(0, 0);
         });
-    });
-
-    // attach nav buttons (optional)
-    document.getElementById('home-button').addEventListener('click', () => showPage('main-page'));
-    document.getElementById('cart-button').addEventListener('click', () => showPage('cart-page'));
-});
-
-// --- FINAL FOOTER FIX ---
-document.querySelectorAll('.footer-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault(); // This stops the "jump to header" behavior
-
-        const target = this.getAttribute('data-target');
-
-        // Map the data-target names to your existing functions
-        if (target === 'profile-page') showProfilePage();
-        else if (target === 'login-page') showLogInPage();
-        else if (target === 'cart-page') showCartPage();
-        else if (target === 'main-page') showHomePage();
-
-        // Ensure the screen doesn't stay at the bottom
-        window.scrollTo(0, 0);
     });
 });
 
 // --- PROFILE UPDATE ALERT ---
-params = new URLSearchParams(window.location.search);
+// We use the existing 'params' variable here (don't create 'new' one again)
 
 if (params.get('status') === 'updated') {
     alert("✅ Profile updated successfully!");

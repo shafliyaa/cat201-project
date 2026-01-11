@@ -142,6 +142,15 @@ html {
     padding-top: 15px;
 }
 
+.footer-link{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-link:hover {
+    color: #b3b3b3; /* Light grey */
+    text-decoration: underline; /* Optional: Bring back underline on hover */
+}
 
 /*---login and signup---*/
 .login-image{

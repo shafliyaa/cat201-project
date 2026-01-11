@@ -39,10 +39,16 @@
         application.setAttribute("userDB", userDB);
     }
 
-    // --- 2. HANDLE SIGN UP ---
+    // --- 2. HANDLE SIGN UP (UPDATED) ---
     if(signupName != null && signupEmail != null && signupPassword != null) {
         String[] newUser = { signupName, signupPassword };
         userDB.put(signupEmail, newUser);
+        
+        // This command tells the browser: "Reload the page with this status tag"
+
+        // We add "&email=" + signupEmail to the URL so we can read it later
+        response.sendRedirect("main.jsp?status=registered&email=" + signupEmail);
+        return; // Stop running the rest of the page
     }
 
     // --- 3. HANDLE LOGIN ---
@@ -253,7 +259,7 @@
                         <p>Bawal Printed Aura</p>
                         <p>$109</p>
                         <img class="star" src="image/Five%20star.png">
-                        <button class="add-to-cart">Add To Cart</button>class=
+                        <button class="add-to-cart">Add To Cart</button>
                     </div>
                     <div class="products" data-id="8" data-name="Bawal Printed Pastel" data-price="130">
                         <img src="image/bawal-2.webp" id="bawal-2" class="pic">
@@ -652,7 +658,6 @@
                     %>
                     <p>Username: <%= (currentUser != null ? currentUser.getUsername() : "Guest") %></p>
                     <p>Email: <%= (currentUser != null ? currentUser.getEmail() : "-") %></p>
-                    <p>Address: <%= (currentUser != null ? currentUser.getAddress() : "-") %></p>
                     <button class="btn-save" onclick="showPage('edit-profile-page')">Edit Profile</button>
                 </div>
             </div>
@@ -736,46 +741,30 @@
     <script>
         // --- CONNECT JAVA SESSION TO JAVASCRIPT ---
         <% 
-            // Check if our Java session has the "isLoggedIn" flag we set earlier
             if(session.getAttribute("isLoggedIn") != null) { 
         %>
-            // If Java says yes, we tell JavaScript to set it to true
             isLoggedIn = true;
-            updateAuthUI(); // Call the function we just made in script.js
+            updateAuthUI(); 
         <% } %>
 
-
-        // --- KEEP THE CORRECT TAB OPEN AFTER RELOAD ---
-        
-        <% if(request.getParameter("signup_email") != null) { %>
-            // 1. Show a popup so they know it worked
-            alert("Account successfully created! Please log in.");
-
-            // 2. Send them directly to the Login Page
-            showLogInPage(); 
-            
-            // 3. Optional: Pre-fill the email box for them (Bonus UX!)
-            document.getElementById("login-email").value = "<%= signupEmail %>";
-        <% } %>
+        // --- HANDLE LOGIN UI SWITCHING ---
+        // (We don't need Signup logic here anymore because script.js handles '?status=registered')
 
         <% if(request.getParameter("login_email") != null) { %>
             <%-- Check if the login message indicates Success --%>
             <% if(loginMessage != null && loginMessage.contains("Success")) { %>
                 
-                // 1. Login Worked: Go straight to Home Page
+                // Login Worked: Go straight to Home Page
                 showHomePage();
-                
-                // 2. Optional: Show a popup so they know it worked
-                alert("Login Successful! Welcome back.");
+                // alert("Login Successful! Welcome back."); // Optional
 
             <% } else { %>
                 
-                // 3. Login Failed: Stay on Login Page to show the Red Error Box
+                // Login Failed: Stay on Login Page to show the Red Error Box
                 showLogInPage();
                 
             <% } %>
         <% } %>
     </script>
-
     </body>
 </html>
