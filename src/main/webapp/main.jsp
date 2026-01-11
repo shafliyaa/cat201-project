@@ -607,8 +607,6 @@
                     <h3>Manage My Account</h3>
                     <ul>
                         <li><a href="#" class="active-link">My Profile</a></li>
-                        <li><a href="#">Address Book</a></li>
-                        <li><a href="#">My Payment Options</a></li>
                     </ul>
                 </div>
 
@@ -618,10 +616,6 @@
                         <li><a href="#">Orders</a></li>
                         <li><a href="#">My History</a></li>
                     </ul>
-                </div>
-
-                <div class="sidebar-group">
-                    <h3 class="standalone-link">My Wishlist</h3>
                 </div>
             </nav>
         </aside>
