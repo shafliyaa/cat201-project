@@ -714,10 +714,10 @@
                 </div>
                 <div>
                     <h3>Account</h3>
-                    <p>My Account</p>
-                    <p>Login/Register</p>
-                    <p>Cart</p>
-                    <p>Shop</p>
+                    <p><a href="javascript:void(0);" onclick="showPage('profile-page')">My Account</a></p>
+                    <p><a href=href="#" class="footer-link" data-target="login-page">Login/Register</a></p>
+                    <p><a href="#cart-page">Cart</a></p>
+                    <p><a href="#main-page">Shop</a></p>
                 </div>
                 <div>
                     <h3>Quick Link</h3>
