@@ -856,6 +856,11 @@ th,td{
     color: #DB4444 !important; /* Signature Red for active page */
 }
 
+.btn-save {
+    position: relative; 
+    z-index: 10;        
+    cursor: pointer;   
+}
 
 /* Profile Form Card Styling */
 .profile-content {

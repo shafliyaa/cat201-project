@@ -654,9 +654,9 @@
             <div class="profile-form-card">
                 <h2 class="form-title">My Profile</h2>
                 <div class="profile-view-details">
-                    <p><strong>Username:</strong> <span id="display-username">User123</span></p>
-                    <p><strong>Email:</strong> <span id="display-email">user@example.com</span></p>
-                    <p><strong>Address:</strong> <span id="display-address">123 Street, City</span></p>
+                    <p><strong>Username:</strong> <span id="display-username"> </span></p>
+                    <p><strong>Email:</strong> <span id="display-email"> </span></p>
+                    <p><strong>Address:</strong> <span id="display-address"> </span></p>
                     <button class="btn-save" onclick="showPage('edit-profile-page')">Edit Profile</button>
                 </div>
             </div>
