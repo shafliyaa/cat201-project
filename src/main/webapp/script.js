@@ -13,6 +13,7 @@ const cartPage = document.getElementById("cart-page");
 const checkOutPage = document.getElementById("checkout-page");
 const profilePage = document.getElementById("profile-page");
 const editProfilePage = document.getElementById("edit-profile-page");
+const editProfileForm = document.getElementById("edit-profile-form");
 
 const squarePage = document.getElementById("square-page");
 const shawlPage = document.getElementById("shawl-page");
@@ -197,8 +198,21 @@ if(forgetPasswordBtn) {
     });
 }
 
+if(editProfileForm) {
+    editProfileForm.addEventListener("submit", function(event) {
+        // If you don't have a servlet yet, prevent refresh for testing:
+        // event.preventDefault();
 
-
+        const newName = document.getElementById("user-name").value;
+        if(newName.trim() === "") {
+            alert("Username cannot be empty!");
+            event.preventDefault();
+        } else {
+            alert("Profile Updated to: " + newName);
+            // After alert, the form will submit to your servlet
+        }
+    });
+}
 // --- 8. CART & ALERTS LOGIC ---
 
 // ADD TO CART (Sends to CartServlet)
@@ -261,33 +275,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('cart-button').addEventListener('click', () => showPage('cart-page'));
 });
 
-/*document.addEventListener("DOMContentLoaded", function() {
-    // hide all pages except main-page
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none');
-    document.getElementById('main-page').style.display = 'block';
-
-    // function to switch pages
-    function showPage(pageId) {
-        pages.forEach(p => p.style.display = 'none');
-        document.getElementById(pageId).style.display = 'block';
-    }
-
-    // attach footer links
-    document.querySelectorAll('.footer-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = this.getAttribute('data-target');
-            showPage(target);
-        });
-    });
-
-    // attach nav buttons (optional)
-    document.getElementById('home-button').addEventListener('click', () => showPage('main-page'));
-    document.getElementById('cart-button').addEventListener('click', () => showPage('cart-page'));
-    });
-*/
-
 // --- FINAL FOOTER FIX ---
 document.querySelectorAll('.footer-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -305,3 +292,16 @@ document.querySelectorAll('.footer-link').forEach(link => {
         window.scrollTo(0, 0);
     });
 });
+
+// --- PROFILE UPDATE ALERT ---
+params = new URLSearchParams(window.location.search);
+
+if (params.get('status') === 'updated') {
+    alert("✅ Profile updated successfully!");
+
+    // This cleans the URL so the alert doesn't pop up again on refresh
+    window.history.replaceState(null, null, window.location.pathname);
+
+    // Ensure we are looking at the profile page
+    showProfilePage();
+}

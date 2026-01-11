@@ -90,7 +90,7 @@
                     <button id="login-button">Log In</button>
                     <button id="profile-button">Profile</button>
                     <button id="cart-button">Cart</button>
-                    <a href="main.jsp?action=logout" id ="logout-button" style="text-decoration: none; color: rgb(171, 31, 31); padding: 8px 16px">Log Out</a>
+                    <a href="main.jsp?action=logout" id ="logout-button" style="text-decoration: none; color: rgb(171, 31, 31); padding: 8px 16px; display: none">Log Out</a>
                 </div>
             </div>
 
@@ -695,11 +695,12 @@
         <main class="profile-content">
             <div class="profile-form-card">
                 <h2 class="form-title">Edit Your Profile</h2>
-                <form id="edit-profile-form">
+                <form id="edit-profile-form" method="POST" action="update-profile">
                     <div class="form-row">
                         <div class="input-group">
                             <label for="user-name">Username</label>
-                            <input type="text" id="user-name">
+                            <input type="text" id="user-name" name="updated_username"
+                            value="<%= (currentUser != null ? currentUser.getUsername() : "") %>">
                         </div>
                     </div>
                     <div class="form-actions">
