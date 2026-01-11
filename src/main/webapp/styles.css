@@ -821,6 +821,7 @@ th,td{
 /* Profile Page Layout Container */
 .profile-layout {
     display: flex; /* Sidebar on left, form on right */
+    flex-direction: row;
     max-width: 1170px;
     margin: 80px auto;
     padding: 0 15px;
@@ -871,6 +872,7 @@ th,td{
 
 /* Profile Form Card Styling */
 .profile-content {
+    display: flex;
     flex: 1; /* Form takes up remaining space */
 }
 
